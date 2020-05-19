@@ -1,2 +1,2 @@
-# team-project-team_7
-team-project-team_7 created by GitHub Classroom
+# FiTrack - Get Fit With Friends
+A fitness tracking application with competitive features

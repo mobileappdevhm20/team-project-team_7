@@ -1,0 +1,3 @@
+Hier werden später Komponenten hinterlegt,
+die an mehereren Stellen in der Anwendung wiederverwendet werden sollen.
+Dies sind dann eher generische Komponenten
