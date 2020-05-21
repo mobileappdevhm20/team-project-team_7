@@ -38,6 +38,7 @@ dev_dependencies:
     sdk: flutter
   flutter_launcher_icons: ^0.7.5
   flutter_launcher_name: ^0.0.1
+  lint: ^1.2.0
 
 flutter_launcher_name:
   name: "FiTrack"

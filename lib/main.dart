@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitrack/routes.dart';
-import 'package:fitrack/views/home/HomeView.dart';
+import 'package:fitrack/views/home/home_view.dart';
 import 'package:fitrack/theme.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class FiTrackApp extends StatelessWidget {
     return MaterialApp(
       title: 'FiTrack',
       theme: getTheme(),
-      initialRoute: HomeView.ROUTE,
+      initialRoute: HomeView.route,
       onGenerateRoute: getRoute(),
     );
   }

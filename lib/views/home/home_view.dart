@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
-  static const String ROUTE = "/";
+  static const String route = "/";
 
-  HomeView({Key key, this.title}) : super(key: key);
+  const HomeView({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Text(

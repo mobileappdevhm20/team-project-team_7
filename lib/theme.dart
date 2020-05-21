@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 //accent color (orange) #f14823
 
 final ThemeData myTheme = ThemeData(
-  primarySwatch: MaterialColor(4280276573, {
+  primarySwatch: const MaterialColor(4280276573, {
     50: Color(0xffe9fcef),
     100: Color(0xffd2f9df),
     200: Color(0xffa6f2c0),
@@ -18,47 +18,38 @@ final ThemeData myTheme = ThemeData(
   }),
   fontFamily: 'Roboto',
   brightness: Brightness.light,
-  primaryColor: Color(0xff1fd65d),
+  primaryColor: const Color(0xff1fd65d),
   primaryColorBrightness: Brightness.dark,
-  primaryColorLight: Color(0xffd2f9df),
-  primaryColorDark: Color(0xff13863a),
-  accentColor: Color(0xfff14823),
+  primaryColorLight: const Color(0xffd2f9df),
+  primaryColorDark: const Color(0xff13863a),
+  accentColor: const Color(0xfff14823),
   accentColorBrightness: Brightness.dark,
-  canvasColor: Color(0xfffafafa),
-  scaffoldBackgroundColor: Color(0xfffafafa),
-  bottomAppBarColor: Color(0xffffffff),
-  cardColor: Color(0xffffffff),
-  dividerColor: Color(0x1f000000),
-  highlightColor: Color(0x66bcbcbc),
-  splashColor: Color(0x66c8c8c8),
-  selectedRowColor: Color(0xfff5f5f5),
-  unselectedWidgetColor: Color(0x8a000000),
-  disabledColor: Color(0x61000000),
-  buttonColor: Color(0xffe0e0e0),
-  toggleableActiveColor: Color(0xff1ab24d),
-  secondaryHeaderColor: Color(0xffe9fcef),
-  textSelectionColor: Color(0xffa6f2c0),
-  cursorColor: Color(0xff79eca0),
-  textSelectionHandleColor: Color(0xff79eca0),
-  backgroundColor: Color(0xffa6f2c0),
-  dialogBackgroundColor: Color(0xffffffff),
-  indicatorColor: Color(0xff20df61),
-  hintColor: Color(0x8a000000),
-  errorColor: Color(0xffd32f2f),
-  buttonTheme: ButtonThemeData(
-    textTheme: ButtonTextTheme.normal,
-    minWidth: 88,
-    height: 36,
-    padding: EdgeInsets.only(top: 0, bottom: 0, left: 16, right: 16),
+  canvasColor: const Color(0xfffafafa),
+  scaffoldBackgroundColor: const Color(0xfffafafa),
+  bottomAppBarColor: const Color(0xffffffff),
+  cardColor: const Color(0xffffffff),
+  dividerColor: const Color(0x1f000000),
+  highlightColor: const Color(0x66bcbcbc),
+  splashColor: const Color(0x66c8c8c8),
+  selectedRowColor: const Color(0xfff5f5f5),
+  unselectedWidgetColor: const Color(0x8a000000),
+  disabledColor: const Color(0x61000000),
+  buttonColor: const Color(0xffe0e0e0),
+  toggleableActiveColor: const Color(0xff1ab24d),
+  secondaryHeaderColor: const Color(0xffe9fcef),
+  textSelectionColor: const Color(0xffa6f2c0),
+  cursorColor: const Color(0xff79eca0),
+  textSelectionHandleColor: const Color(0xff79eca0),
+  backgroundColor: const Color(0xffa6f2c0),
+  dialogBackgroundColor: const Color(0xffffffff),
+  indicatorColor: const Color(0xff20df61),
+  hintColor: const Color(0x8a000000),
+  errorColor: const Color(0xffd32f2f),
+  buttonTheme: const ButtonThemeData(
+    padding: EdgeInsets.only(left: 16, right: 16),
     shape: RoundedRectangleBorder(
-      side: BorderSide(
-        color: Color(0xff000000),
-        width: 0,
-        style: BorderStyle.none,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(2.0)),
     ),
-    alignedDropdown: false,
     buttonColor: Color(0xffe0e0e0),
     disabledColor: Color(0x61000000),
     highlightColor: Color(0x29000000),
@@ -81,7 +72,7 @@ final ThemeData myTheme = ThemeData(
       brightness: Brightness.light,
     ),
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0x8a000000),
     ),
@@ -122,7 +113,7 @@ final ThemeData myTheme = ThemeData(
       color: Color(0xff000000),
     ),
   ),
-  primaryTextTheme: TextTheme(
+  primaryTextTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0x8a000000),
     ),
@@ -163,7 +154,7 @@ final ThemeData myTheme = ThemeData(
       color: Color(0xff000000),
     ),
   ),
-  accentTextTheme: TextTheme(
+  accentTextTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0x8a000000),
     ),
@@ -204,7 +195,7 @@ final ThemeData myTheme = ThemeData(
       color: Color(0xff000000),
     ),
   ),
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     labelStyle: TextStyle(
       color: Color(0xdd000000),
     ),
@@ -217,11 +208,7 @@ final ThemeData myTheme = ThemeData(
     errorStyle: TextStyle(
       color: Color(0xdd000000),
     ),
-    errorMaxLines: null,
-    floatingLabelBehavior: FloatingLabelBehavior.auto,
-    isDense: false,
-    contentPadding: EdgeInsets.only(top: 12, bottom: 12, left: 0, right: 0),
-    isCollapsed: false,
+    contentPadding: EdgeInsets.only(top: 12, bottom: 12),
     prefixStyle: TextStyle(
       color: Color(0xdd000000),
     ),
@@ -231,73 +218,42 @@ final ThemeData myTheme = ThemeData(
     counterStyle: TextStyle(
       color: Color(0xdd000000),
     ),
-    filled: false,
     fillColor: Color(0x00000000),
     errorBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
     focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
     focusedErrorBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
     disabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
     enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
     border: UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff000000),
-        width: 1,
-        style: BorderStyle.solid,
-      ),
       borderRadius: BorderRadius.all(Radius.circular(4.0)),
     ),
   ),
-  iconTheme: IconThemeData(
+  iconTheme: const IconThemeData(
     color: Color(0xdd000000),
     opacity: 1,
     size: 24,
   ),
-  primaryIconTheme: IconThemeData(
+  primaryIconTheme: const IconThemeData(
     color: Color(0xff000000),
     opacity: 1,
     size: 24,
   ),
-  accentIconTheme: IconThemeData(
+  accentIconTheme: const IconThemeData(
     color: Color(0xff000000),
     opacity: 1,
     size: 24,
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Color(0xfff14823),
   ),
   // sliderTheme: SliderThemeData(
@@ -311,10 +267,10 @@ final ThemeData myTheme = ThemeData(
   //   disabledInactiveTickMarkColor: null,
   //   thumbColor: null,
   //   disabledThumbColor: null,
-  //   thumbShape: null(),
+  //   thumbShape: null,
   //   overlayColor: null,
   //   valueIndicatorColor: null,
-  //   valueIndicatorShape: null(),
+  //   valueIndicatorShape: null,
   //   showValueIndicator: null,
   //   valueIndicatorTextStyle: TextStyle(
   //     color: Color(0xdd000000),
@@ -323,17 +279,17 @@ final ThemeData myTheme = ThemeData(
   //     fontStyle: FontStyle.normal,
   //   ),
   // ),
-  tabBarTheme: TabBarTheme(
+  tabBarTheme: const TabBarTheme(
     indicatorSize: TabBarIndicatorSize.tab,
     labelColor: Color(0xdd000000),
     unselectedLabelColor: Color(0xb2000000),
   ),
-  chipTheme: ChipThemeData(
+  chipTheme: const ChipThemeData(
     backgroundColor: Color(0x1f000000),
     brightness: Brightness.light,
     deleteIconColor: Color(0xde000000),
     disabledColor: Color(0x0c000000),
-    labelPadding: EdgeInsets.only(top: 0, bottom: 0, left: 8, right: 8),
+    labelPadding: EdgeInsets.only(left: 8, right: 8),
     labelStyle: TextStyle(
       color: Color(0xde000000),
     ),
@@ -343,22 +299,11 @@ final ThemeData myTheme = ThemeData(
     ),
     secondarySelectedColor: Color(0x3d1fd65d),
     selectedColor: Color(0x3d000000),
-    shape: StadiumBorder(
-        side: BorderSide(
-      color: Color(0xff000000),
-      width: 0,
-      style: BorderStyle.none,
-    )),
+    shape: StadiumBorder(),
   ),
-  dialogTheme: DialogTheme(
-      shape: RoundedRectangleBorder(
-    side: BorderSide(
-      color: Color(0xff000000),
-      width: 0,
-      style: BorderStyle.none,
-    ),
-    borderRadius: BorderRadius.all(Radius.circular(0.0)),
-  )),
+  dialogTheme: const DialogTheme(
+    shape: RoundedRectangleBorder(),
+  ),
 );
 
 ThemeData getTheme() {
