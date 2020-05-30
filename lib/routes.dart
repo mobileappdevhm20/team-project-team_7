@@ -1,4 +1,3 @@
-import 'package:fitrack/repositories/user_repository.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/splash_screen/splash_screen.dart';

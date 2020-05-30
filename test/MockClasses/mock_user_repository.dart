@@ -25,7 +25,7 @@ class MockUserRepository extends Mock implements UserRepository {
   @override
   Future<void> signUp({String email, String password}) async {
     if (!users.containsKey(email) && password.length >= 8) {
-      return Future.delayed(const Duration(milliseconds: 100), () => users[email] = MockUser(email, password));
+      return Future.delayed(const Duration(milliseconds: 100), () => users[email] = MockUser(email, password)).then((value) => signInWithCredentials(email, password));
     } else {
       if (users.containsKey(email)) {
         return Future.error(Exception("User with EMail $email already exists"));

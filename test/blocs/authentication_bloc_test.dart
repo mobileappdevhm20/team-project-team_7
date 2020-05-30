@@ -2,9 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import '../MockClasses/mock_user_repository.dart';
-
 
 void main() {
 
@@ -42,7 +40,7 @@ void main() {
       userRepository = MockUserRepository();
       await userRepository.signUp(email: "test@hm.edu", password: "Test1234");
       await userRepository.signInWithCredentials("test@hm.edu", "Test1234");
-      userRepository.setUserName("Test");
+      await userRepository.setUserName("Test");
       authBloc = AuthenticationBloc(userRepository: userRepository);
     });
 

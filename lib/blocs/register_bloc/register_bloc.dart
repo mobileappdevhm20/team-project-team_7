@@ -16,22 +16,22 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   @override
   RegisterState get initialState => RegisterState.empty();
 
-  @override
-  Stream<Transition<RegisterEvent, RegisterState>> transformEvents(
-    Stream<RegisterEvent> events,
-    TransitionFunction<RegisterEvent, RegisterState> transitionFn,
-  ) {
-    final nonDebounceStream = events.where((event) {
-      return event is! EmailChanged && event is! PasswordChanged;
-    });
-    final debounceStream = events.where((event) {
-      return event is EmailChanged || event is PasswordChanged;
-    }).debounceTime(const Duration(milliseconds: 300));
-    return super.transformEvents(
-      nonDebounceStream.mergeWith([debounceStream]),
-      transitionFn,
-    );
-  }
+  // @override
+  // Stream<Transition<RegisterEvent, RegisterState>> transformEvents(
+  //   Stream<RegisterEvent> events,
+  //   TransitionFunction<RegisterEvent, RegisterState> transitionFn,
+  // ) {
+  //   final nonDebounceStream = events.where((event) {
+  //     return event is! EmailChanged && event is! PasswordChanged;
+  //   });
+  //   final debounceStream = events.where((event) {
+  //     return event is EmailChanged || event is PasswordChanged;
+  //   }).debounceTime(const Duration(milliseconds: 300));
+  //   return super.transformEvents(
+  //     nonDebounceStream.mergeWith([debounceStream]),
+  //     transitionFn,
+  //   );
+  // }
 
   @override
   Stream<RegisterState> mapEventToState(

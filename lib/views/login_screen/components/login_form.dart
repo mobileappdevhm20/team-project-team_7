@@ -1,14 +1,12 @@
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/login_bloc/bloc.dart';
 import 'package:fitrack/components/red_button.dart';
-import 'package:fitrack/repositories/user_repository.dart';
-import 'package:fitrack/theme.dart';
 import 'package:fitrack/views/login_screen/components/login_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginForm extends StatefulWidget {
-  LoginForm({Key key}) : super(key: key);
+  const LoginForm({Key key}) : super(key: key);
 
   @override
   State<LoginForm> createState() => _LoginFormState();

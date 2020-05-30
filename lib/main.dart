@@ -1,15 +1,12 @@
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/simple_bloc_delegate.dart';
 import 'package:fitrack/repositories/user_repository.dart';
-import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitrack/routes.dart';
 import 'package:fitrack/views/home/home_view.dart';
 import 'package:fitrack/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'views/home/home_view.dart';
 import 'views/home/home_view.dart';
 
 void main() {
