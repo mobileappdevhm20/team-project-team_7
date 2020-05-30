@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class UserRepository {
   final FirebaseAuth _firebaseAuth;
@@ -9,12 +8,6 @@ class UserRepository {
 
 
   Future<void> signInWithCredentials(String email, String password) {
-    return _firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-  }
-  Future<void> signInWithUsername(String email, String password) {
     return _firebaseAuth.signInWithEmailAndPassword(
       email: email,
       password: password,
@@ -43,9 +36,9 @@ class UserRepository {
     return (await _firebaseAuth.currentUser()).displayName;
   }
 
-  Future<String> getUser() async {
-    return (await _firebaseAuth.currentUser()).displayName;
-  }
+  // Future<FirebaseUser> getUser() async {
+  //   return _firebaseAuth.currentUser();
+  // }
 
   Future<String> getUserEMail() async {
     return (await _firebaseAuth.currentUser()).email;

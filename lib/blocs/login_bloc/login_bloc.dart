@@ -24,11 +24,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     TransitionFunction<LoginEvent, LoginState> transitionFn,
   ) {
     final nonDebounceStream = events.where((event) {
-      return (event is! EmailChanged && event is! PasswordChanged);
+      return event is! EmailChanged && event is! PasswordChanged;
     });
     final debounceStream = events.where((event) {
-      return (event is EmailChanged || event is PasswordChanged);
-    }).debounceTime(Duration(milliseconds: 300));
+      return event is EmailChanged || event is PasswordChanged;
+    }).debounceTime(const Duration(milliseconds: 300));
     return super.transformEvents(
       nonDebounceStream.mergeWith([debounceStream]),
       transitionFn,
