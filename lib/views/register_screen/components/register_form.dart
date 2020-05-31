@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterForm extends StatefulWidget {
+  @override
   State<RegisterForm> createState() => _RegisterFormState();
 }
 
@@ -17,7 +18,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _repeatPasswordController =
       TextEditingController();
-
+  
   RegisterBloc _registerBloc;
 
   bool get isPopulated =>
