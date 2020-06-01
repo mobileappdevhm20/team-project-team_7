@@ -50,6 +50,7 @@ class FiTrackApp extends StatelessWidget {
             title: state.displayName.toString(),
           );
         }
+        return SplashScreen();
       }),
     );
   }

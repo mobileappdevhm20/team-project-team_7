@@ -57,9 +57,9 @@ class _LoginFormState extends State<LoginForm> {
               SnackBar(
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Logging In...'),
-                    const CircularProgressIndicator(),
+                  children: const [
+                    Text('Logging In...'),
+                    CircularProgressIndicator(),
                   ],
                 ),
               ),

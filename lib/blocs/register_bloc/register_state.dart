@@ -100,7 +100,8 @@ class RegisterState {
 
   @override
   String toString() {
-    return '''RegisterState {
+    return '''
+    RegisterState {
       isNameValid: $isNameValid,
       isEmailValid: $isEmailValid,
       isPasswordValid: $isPasswordValid,

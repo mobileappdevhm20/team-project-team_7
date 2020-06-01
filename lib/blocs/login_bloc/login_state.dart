@@ -90,7 +90,8 @@ class LoginState {
 
   @override
   String toString() {
-    return '''LoginState {
+    return '''
+    LoginState {
       isEmailValid: $isEmailValid,
       isPasswordValid: $isPasswordValid,
       isSubmitting: $isSubmitting,

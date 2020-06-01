@@ -9,14 +9,14 @@ class MockFirebaseUser extends Mock implements FirebaseUser{}
 class MockAuthResult extends Mock implements AuthResult {}
 
 void main() {
-  MockFirebaseAuth _auth = MockFirebaseAuth();
-  BehaviorSubject<MockFirebaseUser> _user = BehaviorSubject<MockFirebaseUser>();
+  final MockFirebaseAuth _auth = MockFirebaseAuth();
+  final BehaviorSubject<MockFirebaseUser> _user = BehaviorSubject<MockFirebaseUser>();
   
   when(_auth.onAuthStateChanged).thenAnswer((_){
     return _user;
   });
 
-  UserRepository _repo = UserRepository(firebaseAuth: _auth);
+  final UserRepository _repo = UserRepository(firebaseAuth: _auth);
 
   group('user repository test', (){
     when(_auth.signInWithEmailAndPassword(email: "email",password: "password")).thenAnswer((_)async{
@@ -32,7 +32,7 @@ void main() {
 
     test("sign in with email and password", () async {
       await _repo.signInWithCredentials("email", "password");
-      var signedIn = await _repo.isSignedIn();
+      final signedIn = await _repo.isSignedIn();
       expect(signedIn, true);
     });
   });

@@ -30,8 +30,7 @@ class _HomeViewState extends State<HomeView> {
         title: Text(widget.title),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.cancel), onPressed: () {
-            RepositoryProvider.of<UserRepository>(context).signOut();
-            BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+            RepositoryProvider.of<UserRepository>(context).signOut().then((_) => BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut()));
           })
         ],
       ),

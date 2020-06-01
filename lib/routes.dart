@@ -20,7 +20,7 @@ RouteFactory getRoute() {
         screen = SplashScreen();
         break;
       case LoginScreen.route:
-        screen = LoginScreen();
+        screen = const LoginScreen();
         break;
       case RegisterScreen.route:
         screen = const RegisterScreen();

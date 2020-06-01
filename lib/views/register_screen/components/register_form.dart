@@ -1,9 +1,7 @@
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/register_bloc/bloc.dart';
 import 'package:fitrack/components/red_button.dart';
-import 'package:fitrack/theme.dart';
 import 'package:fitrack/views/login_screen/components/login_input_field.dart';
-import 'package:fitrack/views/register_screen/components/register_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,9 +53,9 @@ class _RegisterFormState extends State<RegisterForm> {
               SnackBar(
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Registering...'),
-                    const CircularProgressIndicator(),
+                  children: const [
+                    Text('Registering...'),
+                    CircularProgressIndicator(),
                   ],
                 ),
               ),
