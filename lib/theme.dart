@@ -208,7 +208,7 @@ final ThemeData myTheme = ThemeData(
     errorStyle: TextStyle(
       color: Color(0xdd000000),
     ),
-    contentPadding: EdgeInsets.only(top: 12, bottom: 12),
+    contentPadding: EdgeInsets.only(top: 20, bottom: 20),
     prefixStyle: TextStyle(
       color: Color(0xdd000000),
     ),
@@ -219,23 +219,29 @@ final ThemeData myTheme = ThemeData(
       color: Color(0xdd000000),
     ),
     fillColor: Color(0x00000000),
-    errorBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    errorBorder:  OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
     ),
-    focusedBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    focusedBorder:  OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Color(0xFF00FF55), width: 2.0),
     ),
-    focusedErrorBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    focusedErrorBorder:  OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
     ),
-    disabledBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    disabledBorder:  OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Colors.yellow, width: 2.0),
     ),
-    enabledBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Color(0xff1fd65d), width: 2.0),
     ),
-    border: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      borderSide: BorderSide(color: Color(0xff1fd65d), width: 2.0),
     ),
   ),
   iconTheme: const IconThemeData(

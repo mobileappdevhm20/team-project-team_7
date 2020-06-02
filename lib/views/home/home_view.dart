@@ -1,4 +1,7 @@
+import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
+import 'package:fitrack/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatefulWidget {
   static const String route = "/";
@@ -25,6 +28,11 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.cancel), onPressed: () {
+            RepositoryProvider.of<UserRepository>(context).signOut().then((_) => BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut()));
+          })
+        ],
       ),
       body: Center(
         child: Column(
