@@ -254,11 +254,6 @@ final ThemeData myTheme = ThemeData(
     opacity: 1,
     size: 24,
   ),
-  accentIconTheme: const IconThemeData(
-    color: Color(0xff000000),
-    opacity: 1,
-    size: 24,
-  ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Color(0xfff14823),
   ),
