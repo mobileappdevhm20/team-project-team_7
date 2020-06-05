@@ -1,0 +1,5 @@
+Später werden hier die Service-Files hinzugefügt,
+die API-Calls an andere Services stellen oder auf andere Datenquellen zugreifen
+(z.B lokale Filestorage oder Sensorik)
+
+Pro Datenquelle sollte daher ein spezieller Service geschrieben werden.

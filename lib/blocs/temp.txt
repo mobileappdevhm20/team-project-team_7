@@ -1,0 +1,8 @@
+Hier werden verschiedene Ordner angelegt,
+Jedes dieser Ordner enthält 3 Dateien:
+- Das Bloc-Objekt
+- Das zugehörige Event-Objekt
+- Das zugehörige State-Objekt
+
+Mehr Infos zum Bloc-Pattern können hier gefunden werden:
+https://resocoder.com/2019/10/26/flutter-bloc-library-tutorial-1-0-0-stable-reactive-state-management/
