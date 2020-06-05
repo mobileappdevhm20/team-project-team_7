@@ -1,20 +1,29 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
-import 'package:fitrack/repositories/user_repository.dart';
+import 'package:fitrack/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatefulWidget {
-  static const String route = "/";
-
-  const HomeView({Key key, this.title}) : super(key: key);
-
-  final String title;
+class HomeScreen extends StatefulWidget implements AutoRouteWrapper {
+  const HomeScreen({Key key}) : super(key: key);
 
   @override
-  _HomeViewState createState() => _HomeViewState();
+  Widget wrappedRoute(BuildContext context) =>
+      BlocListener<AuthenticationBloc, AuthenticationState>(
+        listener: (context, state) {
+          if (state is Unauthenticated) {
+            ExtendedNavigator.of(context)
+                .pushReplacementNamed(Routes.splashScreen);
+          }
+        },
+        child: this,
+      );
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeScreenState extends State<HomeScreen> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -27,11 +36,13 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("This is a demo home screen"),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.cancel), onPressed: () {
-            RepositoryProvider.of<UserRepository>(context).signOut().then((_) => BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut()));
-          })
+          IconButton(
+              icon: Icon(Icons.cancel),
+              onPressed: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              })
         ],
       ),
       body: Center(
