@@ -1,6 +1,8 @@
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/simple_bloc_delegate.dart';
+import 'package:fitrack/blocs/workout_bloc/bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
+import 'package:fitrack/repositories/workout_repository.dart';
 import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitrack/routes.dart';
@@ -13,19 +15,22 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // final UserRepository userRepository = UserRepository();
   BlocSupervisor.delegate = SimpleBlocDelegate();
+  
   runApp(MultiRepositoryProvider(
     providers: [
       //global repositories
       RepositoryProvider(create: (context) => UserRepository()),
     ],
-    child: BlocProvider(
-      create: (context) =>
-          AuthenticationBloc(userRepository: RepositoryProvider.of<UserRepository>(context))..add(AppStarted()),
+    child: MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthenticationBloc>(create: (context) => AuthenticationBloc(userRepository: RepositoryProvider.of<UserRepository>(context))..add(AppStarted())),
+        BlocProvider<WorkoutBloc>(create: (context) => WorkoutBloc(workoutRepository: WorkoutRepository()),)
+      ],
       child: const FiTrackApp(),
     ),
   ));
 }
-
+ 
 class FiTrackApp extends StatelessWidget {
 
   const FiTrackApp({Key key})

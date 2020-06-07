@@ -1,5 +1,6 @@
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
+import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const TrackingView()));},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
