@@ -11,17 +11,23 @@ import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
+import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
+import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
 
 abstract class Routes {
   static const splashScreen = '/';
   static const registerScreen = '/register-screen';
   static const loginScreen = '/login-screen';
   static const homeScreen = '/home-screen';
+  static const trackingScreen = '/tracking-screen';
+  static const trackingSummaryScreen = '/tracking-summary-screen';
   static const all = {
     splashScreen,
     registerScreen,
     loginScreen,
     homeScreen,
+    trackingScreen,
+    trackingSummaryScreen,
   };
 }
 
@@ -80,6 +86,32 @@ class Router extends RouterBase {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
         );
+      case Routes.trackingScreen:
+        if (hasInvalidArgs<TrackingScreenArguments>(args)) {
+          return misTypedArgsRoute<TrackingScreenArguments>(args);
+        }
+        final typedArgs =
+            args as TrackingScreenArguments ?? TrackingScreenArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              TrackingScreen(key: typedArgs.key, title: typedArgs.title),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.trackingSummaryScreen:
+        if (hasInvalidArgs<TrackingSummaryScreenArguments>(args)) {
+          return misTypedArgsRoute<TrackingSummaryScreenArguments>(args);
+        }
+        final typedArgs = args as TrackingSummaryScreenArguments ??
+            TrackingSummaryScreenArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              TrackingSummaryScreen(key: typedArgs.key, title: typedArgs.title),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -106,4 +138,18 @@ class LoginScreenArguments {
 class HomeScreenArguments {
   final Key key;
   HomeScreenArguments({this.key});
+}
+
+//TrackingScreen arguments holder class
+class TrackingScreenArguments {
+  final Key key;
+  final String title;
+  TrackingScreenArguments({this.key, this.title});
+}
+
+//TrackingSummaryScreen arguments holder class
+class TrackingSummaryScreenArguments {
+  final Key key;
+  final String title;
+  TrackingSummaryScreenArguments({this.key, this.title});
 }

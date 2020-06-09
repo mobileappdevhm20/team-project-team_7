@@ -10,6 +10,9 @@ class WorkoutState {
   final DateTime end;
   final double latitude;
   final double longitude;
+  final bool error;
+  final bool isTracking;
+  final bool isLoading;
 
   const WorkoutState({
     @required this.distance,
@@ -20,6 +23,9 @@ class WorkoutState {
     @required this.end,
     @required this.latitude,
     @required this.longitude,
+    @required this.error,
+    @required this.isTracking,
+    @required this.isLoading,
   });
 
   factory WorkoutState.empty() {
@@ -29,9 +35,12 @@ class WorkoutState {
       avgSpeed: 0.0,
       maxSpeed: 0.0,
       beginning: DateTime.now(),
-      end: null,
+      end: DateTime.now(),
       latitude: 0.0,
       longitude: 0.0,
+      error: false,
+      isTracking: false,
+      isLoading: false,
     );
   }
 
@@ -43,7 +52,10 @@ class WorkoutState {
       DateTime beginning,
       DateTime end,
       double latitude,
-      double longitude}) {
+      double longitude,
+      bool error,
+      bool isTracking,
+      bool isLoading}) {
     return copyWith(
       distance: distance,
       currentSpeed: currentSpeed,
@@ -53,6 +65,9 @@ class WorkoutState {
       end: end,
       latitude: latitude,
       longitude: longitude,
+      error: error,
+      isTracking: isTracking,
+      isLoading: isLoading
     );
   }
 
@@ -64,7 +79,10 @@ class WorkoutState {
       DateTime beginning,
       DateTime end,
       double latitude,
-      double longitude}) {
+      double longitude,
+      bool error,
+      bool isTracking,
+      bool isLoading}) {
     return WorkoutState(
       distance: distance ?? this.distance,
       currentSpeed: currentSpeed ?? this.currentSpeed,
@@ -74,6 +92,9 @@ class WorkoutState {
       end: end ?? this.end,
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
+      error: error ?? this.error,
+      isTracking: isTracking ?? this.isTracking,
+      isLoading: isLoading ?? this.isLoading
     );
   }
 
@@ -89,15 +110,9 @@ class WorkoutState {
       end: $end,
       latitude: $latitude,
       longitude: $longitude,
+      error: $error,
+      isTracking: $isTracking,
+      isLoading: $isLoading
     }''';
   }
-}
-
-@immutable
-class WorkoutErrorState extends WorkoutState {
-
-  const WorkoutErrorState();
-
-  @override
-  String toString() => 'Authenticated { WorkoutErrorState }';
 }

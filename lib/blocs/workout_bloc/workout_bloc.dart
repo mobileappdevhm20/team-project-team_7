@@ -9,12 +9,6 @@ import 'package:meta/meta.dart';
 
 
 class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
-  final WorkoutRepository _workoutRepository;
-
-  WorkoutBloc({
-    @required WorkoutRepository workoutRepository,
-  })  : assert(workoutRepository != null),
-        _workoutRepository = workoutRepository;
 
   @override
   WorkoutState get initialState => WorkoutState.empty();
@@ -32,22 +26,31 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
 
   Stream<WorkoutState> _mapStartWorkoutToState() async* {
     
-    BackgroundLocation.getPermissions(
+    yield state.update(isLoading: true);
+
+    var granted = false;
+    await BackgroundLocation.getPermissions(
       onGranted: () {
-        // Start location service here or do something else
+        granted = true;
       },
       onDenied: () {
-        // Show a message asking the user to reconsider or do something else
+        granted = false;
       },
     );
     
-    BackgroundLocation.startLocationService();
-    final location = await BackgroundLocation().getCurrentLocation();
+    if (granted) {
+      await BackgroundLocation.stopLocationService();
+      await BackgroundLocation.startLocationService();
+      final location = await BackgroundLocation().getCurrentLocation();
 
-    yield state.update(beginning: DateTime.now(), end: DateTime.now(), latitude: location.latitude, longitude: location.longitude);
-    BackgroundLocation.getLocationUpdates((location) {
-      add(LocationEvent(latitude: location.latitude, longitude: location.longitude));
-    });
+      yield state.update(beginning: DateTime.now(), end: DateTime.now(), latitude: location.latitude, longitude: location.longitude, avgSpeed: 0.0, currentSpeed: 0.0, distance: 0.0, maxSpeed: 0.0, error: false, isTracking: true, isLoading: false);
+      BackgroundLocation.getLocationUpdates((location) {
+        add(LocationEvent(latitude: location.latitude, longitude: location.longitude));
+      });
+    } else {
+      yield state.update(error: true, isTracking: false, isLoading: false);
+    }
+    
   }
 
   Stream<WorkoutState> _mapLocationEventToState(double latitude, double longitude) async* {
@@ -72,8 +75,8 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
   }
 
   Stream<WorkoutState> _mapEndWorkoutToState() async* {
+    yield state.update(isTracking: false);
     BackgroundLocation.stopLocationService();
-    yield state;
   }
 }
 
@@ -90,8 +93,8 @@ double distanceInMBetweenEarthCoordinates(double lat1, double lon1, double lat2,
   final double latitude1 = degreesToRadians(lat1);
   final double latitude2 = degreesToRadians(lat2);
 
-  var a = sin(dLat/2) * sin(dLat/2) +
+  final a = sin(dLat/2) * sin(dLat/2) +
           sin(dLon/2) * sin(dLon/2) * cos(latitude1) * cos(latitude2); 
-  var c = 2 * atan2(sqrt(a), sqrt(1-a)); 
+  final c = 2 * atan2(sqrt(a), sqrt(1-a)); 
   return earthRadiusm * c;
 }
