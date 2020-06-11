@@ -4,8 +4,6 @@ import 'package:fitrack/blocs/workout_bloc/workout_bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_event.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
 import 'package:fitrack/components/red_button.dart';
-import 'package:fitrack/repositories/user_repository.dart';
-import 'package:fitrack/repositories/workout_repository.dart';
 import 'package:fitrack/routes/router.gr.dart';
 import 'package:fitrack/views/tracking_screen/stop_watch.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +131,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                                   onPressed: () {
                                     BlocProvider.of<WorkoutBloc>(context)
                                         .add(const EndWorkout());
-                                    ExtendedNavigator.of(context).pushNamed(Routes.trackingSummaryScreen);
+                                    ExtendedNavigator.of(context).pushReplacementNamed(Routes.trackingSummaryScreen);
                                   },
                                   child: const Text('Yes'),
                                 ),
@@ -156,9 +154,9 @@ class _TrackingScreenState extends State<TrackingScreen> {
                           duration: const Duration(seconds: 999999),
                           content: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Starting GPS '),
-                              const CircularProgressIndicator()
+                            children: const [
+                              Text('Starting GPS '),
+                              CircularProgressIndicator()
                             ],
                           ),
                         ),

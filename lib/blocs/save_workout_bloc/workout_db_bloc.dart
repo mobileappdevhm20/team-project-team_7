@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fitrack/models/Workout.dart';
-import 'package:fitrack/repositories/user_repository.dart';
+import 'package:fitrack/models/work_out.dart';
 import 'package:fitrack/repositories/workout_repository.dart';
 import 'package:meta/meta.dart';
 
@@ -11,12 +10,10 @@ part 'workout_db_state.dart';
 
 class WorkoutDBBloc
     extends Bloc<WorkoutDBEvent, WorkoutDBState> {
-  final UserRepository _userRepository;
   final WorkoutRepository _workoutRepository;
 
-  WorkoutDBBloc({@required UserRepository userRepository, @required WorkoutRepository workoutRepository})
-      : assert(userRepository != null),
-        _userRepository = userRepository,
+  WorkoutDBBloc({@required WorkoutRepository workoutRepository})
+      : assert(workoutRepository != null),
         _workoutRepository = workoutRepository;
 
   @override
@@ -34,9 +31,9 @@ class WorkoutDBBloc
   }
 
   Stream<WorkoutDBState> _mapSaveWorkoutToState(SaveWorkout event) async* {
-    final uid = await _userRepository.getCurrentUID();
+    yield Saving();
     try {
-      await _workoutRepository.saveWorkout(uid, event.workout);
+      await _workoutRepository.saveWorkout(event.workout);
       yield Success();
     } catch (_) {
       yield const Error("Could not save workout");

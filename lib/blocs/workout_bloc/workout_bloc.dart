@@ -4,9 +4,6 @@ import 'package:background_location/background_location.dart';
 import 'package:bloc/bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_event.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
-import 'package:fitrack/repositories/workout_repository.dart';
-import 'package:meta/meta.dart';
-
 
 class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
 

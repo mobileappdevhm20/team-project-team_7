@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/login_bloc/bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';

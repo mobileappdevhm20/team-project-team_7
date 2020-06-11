@@ -18,3 +18,5 @@ class Error extends WorkoutDBState {
   @override
   List<Object> get props => [message];
 }
+
+class Saving extends WorkoutDBState {}

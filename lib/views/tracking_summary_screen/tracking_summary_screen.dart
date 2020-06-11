@@ -1,15 +1,11 @@
-import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/save_workout_bloc/workout_db_bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_bloc.dart';
-import 'package:fitrack/blocs/workout_bloc/workout_event.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
 import 'package:fitrack/components/red_button.dart';
-import 'package:fitrack/models/Workout.dart';
-import 'package:fitrack/repositories/user_repository.dart';
-import 'package:fitrack/repositories/workout_repository.dart';
+import 'package:fitrack/components/stat_row.dart';
+import 'package:fitrack/models/work_out.dart';
 import 'package:fitrack/routes/router.gr.dart';
-import 'package:fitrack/views/tracking_screen/stop_watch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +13,7 @@ class TrackingSummaryScreen extends StatefulWidget {
   const TrackingSummaryScreen({Key key, this.title}) : super(key: key);
 
   final String title;
+
 
   @override
   _TrackingSummaryScreenState createState() => _TrackingSummaryScreenState();
@@ -30,11 +27,48 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  
+    Scaffold (
       appBar: AppBar(
         title: const Text("Summary"),
       ),
-      body: ListView(
+      body: BlocListener<WorkoutDBBloc, WorkoutDBState>(
+        listener: (context, state) {
+          if (state is Error) {
+          Scaffold.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text(state.message.toString()), Icon(Icons.error)],
+                ),
+                backgroundColor: Colors.red,
+              ),
+            );
+        }
+        if (state is Saving) {
+          Scaffold.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('Saving Workout...'),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
+            );
+        }
+        if (state is Success) {
+          ExtendedNavigator.of(context)
+              .pushReplacementNamed(Routes.pastWorkoutsScreen);
+        }
+        },
+        child:      
+      ListView(
         children: <Widget>[
           Center(
             child: BlocBuilder<WorkoutBloc, WorkoutState>(
@@ -58,76 +92,24 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                       height: 1.0,
                       color: Theme.of(context).primaryColor,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Duration",
-                          style: TextStyle(fontWeight: FontWeight.normal),
-                          textScaleFactor: 1.7,
-                        ),
-                        Text(
-                          (state.beginning.difference(state.end))
+                    StatRow(
+                      leftText: "Duration",
+                      rightText: state.beginning.difference(state.end)
                               .abs()
                               .toString()
                               .replaceAll(RegExp(r'\.[0-9]*'), ''),
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
-                          textScaleFactor: 2.5,
-                        ),
-                      ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Distance",
-                          style: TextStyle(fontWeight: FontWeight.normal),
-                          textScaleFactor: 1.7,
-                        ),
-                        Text(
-                          "${state.distance.toStringAsFixed(2)} km",
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
-                          textScaleFactor: 2.5,
-                        ),
-                      ],
+                    StatRow(
+                      leftText: "Distance",
+                      rightText: "${state.distance.toStringAsFixed(2)} km"
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Avg. Speed",
-                          style: TextStyle(fontWeight: FontWeight.normal),
-                          textScaleFactor: 1.7,
-                        ),
-                        Text(
-                          "${state.avgSpeed.toStringAsFixed(2)} kmh",
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
-                          textScaleFactor: 2.5,
-                        ),
-                      ],
+                    StatRow(
+                      leftText: "Avg. Speed",
+                      rightText: "${state.avgSpeed.toStringAsFixed(2)} kmh"
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Max. Speed",
-                          style: TextStyle(fontWeight: FontWeight.normal),
-                          textScaleFactor: 1.7,
-                        ),
-                        Text(
-                          "${state.maxSpeed.toStringAsFixed(2)} kmh",
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
-                          textScaleFactor: 2.5,
-                        ),
-                      ],
+                    StatRow(
+                      leftText: "Max. Speed",
+                      rightText: "${state.maxSpeed.toStringAsFixed(2)} kmh"
                     )
                   ],
                 ),
@@ -145,7 +127,8 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                         state.distance,
                         state.beginning.difference(state.end).abs().inSeconds,
                         state.avgSpeed,
-                        state.maxSpeed);
+                        state.maxSpeed,
+                        state.beginning);
                     BlocProvider.of<WorkoutDBBloc>(context)
                         .add(SaveWorkout(workout: workout));
                   },
@@ -181,6 +164,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
             ),
           ),
         ],
+      ),
       ),
     );
   }

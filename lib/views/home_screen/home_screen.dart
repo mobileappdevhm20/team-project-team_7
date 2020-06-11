@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/routes/router.gr.dart';
-import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,13 +24,8 @@ class HomeScreen extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
+  final int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

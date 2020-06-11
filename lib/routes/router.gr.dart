@@ -13,6 +13,7 @@ import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
 import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
+import 'package:fitrack/views/past_workouts_screen/past_workouts_screen.dart';
 
 abstract class Routes {
   static const splashScreen = '/';
@@ -21,6 +22,7 @@ abstract class Routes {
   static const homeScreen = '/home-screen';
   static const trackingScreen = '/tracking-screen';
   static const trackingSummaryScreen = '/tracking-summary-screen';
+  static const pastWorkoutsScreen = '/past-workouts-screen';
   static const all = {
     splashScreen,
     registerScreen,
@@ -28,6 +30,7 @@ abstract class Routes {
     homeScreen,
     trackingScreen,
     trackingSummaryScreen,
+    pastWorkoutsScreen,
   };
 }
 
@@ -108,6 +111,14 @@ class Router extends RouterBase {
         return PageRouteBuilder<dynamic>(
           pageBuilder: (context, animation, secondaryAnimation) =>
               TrackingSummaryScreen(key: typedArgs.key, title: typedArgs.title),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.pastWorkoutsScreen:
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              PastWorkoutsScreen(),
           settings: settings,
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 200),

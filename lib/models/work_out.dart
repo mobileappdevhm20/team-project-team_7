@@ -3,13 +3,14 @@ class Workout {
   final int durationInSeconds;
   final double avgSpeed;
   final double maxSpeed;
-
+  final DateTime date;
 
   Workout(
       this.distance,
       this.durationInSeconds,
       this.avgSpeed,
       this.maxSpeed,
+      this.date
       );
 
   Map<String, dynamic> toJson() => {
@@ -17,5 +18,6 @@ class Workout {
     'durationInSeconds': durationInSeconds,
     'avgSpeed': avgSpeed,
     'maxSpeed': maxSpeed,
+    'date': date,
   };
 }

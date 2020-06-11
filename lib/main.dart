@@ -5,7 +5,6 @@ import 'package:fitrack/blocs/simple_bloc_delegate.dart';
 import 'package:fitrack/blocs/workout_bloc/bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:fitrack/repositories/workout_repository.dart';
-import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitrack/routes/router.gr.dart';
 import 'package:fitrack/theme.dart';
@@ -37,8 +36,6 @@ void main() {
           ),
           BlocProvider<WorkoutDBBloc>(
               create: (context) => WorkoutDBBloc(
-                  userRepository:
-                      RepositoryProvider.of<UserRepository>(context),
                   workoutRepository:
                       RepositoryProvider.of<WorkoutRepository>(context))),
         ],

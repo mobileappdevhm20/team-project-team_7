@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:fitrack/views/past_workouts_screen/past_workouts_screen.dart';
 import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
@@ -36,4 +37,9 @@ class $Router {
       transitionsBuilder: TransitionsBuilders.fadeIn,
       durationInMilliseconds: 200)
   TrackingSummaryScreen trackingSummaryScreen;
+
+  @CustomRoute(
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+      durationInMilliseconds: 200)
+  PastWorkoutsScreen pastWorkoutsScreen;
 }
