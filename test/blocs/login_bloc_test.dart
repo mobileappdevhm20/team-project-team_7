@@ -86,12 +86,5 @@ void main() {
     act: (bloc) async =>  bloc.add(const LoginWithCredentialsPressed(email: "test@hm.error", password: "Test1234")),
     expect: [isA<LoginState>().having((source) => source.isSubmitting, "submitting", true) , isA<LoginState>().having((source) => source.isFailure, "should be failure", true)],
   );
-
-  blocTest(
-    'Login',
-    build: () async => loginBloc,
-    act: (bloc) async =>  bloc.add(const LoginWithCredentialsPressed(email: "test@hm.edu", password: "Test1234")),
-    expect: [isA<LoginState>().having((source) => source.isSubmitting, "submitting", true) , isA<LoginState>().having((source) => source.isSuccess, "should be successfull", true)],
-  );
   });
 }
