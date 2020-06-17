@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/login_bloc/bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
@@ -25,7 +23,13 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text(
+          'Login',
+          style: TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         elevation: 0.0,
       ),
       body: const LoginForm(),

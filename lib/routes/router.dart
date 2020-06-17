@@ -4,6 +4,7 @@ import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
+import 'package:fitrack/views/settings_screen/settings_screen.dart';
 
 @MaterialAutoRouter()
 class $Router {
@@ -24,4 +25,9 @@ class $Router {
       transitionsBuilder: TransitionsBuilders.fadeIn,
       durationInMilliseconds: 500)
   HomeScreen homeScreen;
+
+  @MaterialRoute(
+    fullscreenDialog: true,
+  )
+  SettingsScreen settingsScreen;
 }

@@ -11,17 +11,20 @@ import 'package:fitrack/views/splash_screen/splash_screen.dart';
 import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
+import 'package:fitrack/views/settings_screen/settings_screen.dart';
 
 abstract class Routes {
   static const splashScreen = '/';
   static const registerScreen = '/register-screen';
   static const loginScreen = '/login-screen';
   static const homeScreen = '/home-screen';
+  static const settingsScreen = '/settings-screen';
   static const all = {
     splashScreen,
     registerScreen,
     loginScreen,
     homeScreen,
+    settingsScreen,
   };
 }
 
@@ -75,10 +78,21 @@ class Router extends RouterBase {
         final typedArgs = args as HomeScreenArguments ?? HomeScreenArguments();
         return PageRouteBuilder<dynamic>(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              HomeScreen(key: typedArgs.key).wrappedRoute(context),
+              HomeScreen(key: typedArgs.key),
           settings: settings,
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
+        );
+      case Routes.settingsScreen:
+        if (hasInvalidArgs<SettingsScreenArguments>(args)) {
+          return misTypedArgsRoute<SettingsScreenArguments>(args);
+        }
+        final typedArgs =
+            args as SettingsScreenArguments ?? SettingsScreenArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => SettingsScreen(key: typedArgs.key),
+          settings: settings,
+          fullscreenDialog: true,
         );
       default:
         return unknownRoutePage(settings.name);
@@ -106,4 +120,10 @@ class LoginScreenArguments {
 class HomeScreenArguments {
   final Key key;
   HomeScreenArguments({this.key});
+}
+
+//SettingsScreen arguments holder class
+class SettingsScreenArguments {
+  final Key key;
+  SettingsScreenArguments({this.key});
 }

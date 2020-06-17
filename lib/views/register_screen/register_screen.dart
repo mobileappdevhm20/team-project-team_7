@@ -21,7 +21,13 @@ class RegisterScreen extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text(
+          'Register',
+          style: TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         elevation: 0.0,
       ),
       body: Center(
