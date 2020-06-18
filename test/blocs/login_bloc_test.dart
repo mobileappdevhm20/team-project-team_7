@@ -4,7 +4,6 @@ import 'package:fitrack/repositories/user_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../MockClasses/mock_user_repository.dart';
 
-
 void main() {
 
   // Create a mock instance

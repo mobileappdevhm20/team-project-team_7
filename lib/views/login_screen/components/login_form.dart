@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/login_bloc/bloc.dart';
 import 'package:fitrack/components/red_button.dart';
@@ -67,7 +68,7 @@ class _LoginFormState extends State<LoginForm> {
         }
         if (state.isSuccess) {
           BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn());
-          Navigator.of(context).pop();
+          ExtendedNavigator.of(context).pop();
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(
