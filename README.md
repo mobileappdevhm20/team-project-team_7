@@ -20,6 +20,9 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 ---
 
 ## Screenshots of the application
+Start  |  Login page | Register page
+:-------------------------:|:-------------------------:|:-------------------------:
+![Start](https://github.com/mobileappdevhm20/team-project-team_7/blob/feature/readme/docs/FiTrack-Start.PNG?raw=true)  |  ![Login](https://github.com/mobileappdevhm20/team-project-team_7/blob/feature/readme/docs/FiTrack-LogIn-Screen.PNG?raw=true)  |  ![Register](https://github.com/mobileappdevhm20/team-project-team_7/blob/feature/readme/docs/FiTrack-Register.PNG?raw=true)
 
 ---
 
