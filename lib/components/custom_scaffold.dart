@@ -2,16 +2,19 @@ import 'package:fitrack/components/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class FiTrackScaffold extends StatelessWidget {
-  const FiTrackScaffold(
-      {@required this.screenTitle,
-      @required this.body,
-      this.showBottomNavigationBar = false,
-      this.fabButton});
+  const FiTrackScaffold({
+    @required this.screenTitle,
+    @required this.body,
+    this.showBottomNavigationBar = false,
+    this.fabButton,
+    this.floatingLocation = FloatingActionButtonLocation.endFloat,
+  });
 
   final String screenTitle;
   final Widget body;
   final Widget fabButton;
   final bool showBottomNavigationBar;
+  final FloatingActionButtonLocation floatingLocation;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class FiTrackScaffold extends StatelessWidget {
       floatingActionButton: fabButton,
       floatingActionButtonLocation: showBottomNavigationBar
           ? FloatingActionButtonLocation.endDocked
-          : FloatingActionButtonLocation.endFloat,
+          : floatingLocation,
     );
   }
 }
