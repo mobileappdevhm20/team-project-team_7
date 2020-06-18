@@ -28,7 +28,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tracking"),
+        title: const Text("Tracking", style: TextStyle(color: Colors.white),),
       ),
       body: BlocListener<WorkoutBloc, WorkoutState>(
         listener: (context, state) {
@@ -53,6 +53,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
         },
         child: ListView(
           children: <Widget>[
+            const Padding(padding: EdgeInsets.all(10)),
             Center(child: 
             BlocBuilder<WorkoutBloc, WorkoutState>(
               builder: (context, state) {
@@ -131,7 +132,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                                   onPressed: () {
                                     BlocProvider.of<WorkoutBloc>(context)
                                         .add(const EndWorkout());
-                                    ExtendedNavigator.of(context).pushReplacementNamed(Routes.trackingSummaryScreen);
+                                    ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.trackingSummaryScreen, (Route<dynamic> route) => false);
                                   },
                                   child: const Text('Yes'),
                                 ),

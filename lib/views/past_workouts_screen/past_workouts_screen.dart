@@ -29,7 +29,7 @@ class PastWorkoutsScreen extends StatelessWidget {
                     return ListView(
                       children: snapshot2.data.documents
                           .map((DocumentSnapshot document) {
-                        return PastWorkoutCard(timestamp: document['date'] as Timestamp, durationInSeconds: document['duration'] as int, 
+                        return PastWorkoutCard(timestamp: document['date'] as Timestamp, durationInSeconds: document['durationInSeconds'] as int, 
                         avgSpeed: document['avgSpeed'] as double, maxSpeed: document['maxSpeed'] as double, distance: document['distance'] as double, id: document.documentID,);
                       }).toList()..sort((a,b) => b.timestamp.compareTo(a.timestamp))
                     );

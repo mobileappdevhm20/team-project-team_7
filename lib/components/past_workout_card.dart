@@ -49,12 +49,13 @@ class PastWorkoutCard extends StatelessWidget {
                   Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(DateFormat('EEEE d.M.y, H:m').format(start), style: TextStyle(fontWeight: FontWeight.bold, wordSpacing: 5, letterSpacing: 1, color: Colors.grey[700]),),
+                        Text(DateFormat('EEEE d.M.y, HH:mm').format(start), style: TextStyle(fontWeight: FontWeight.bold, wordSpacing: 5, letterSpacing: 1, color: Colors.grey[700]),),
                       ]),
+                  const Padding(padding: EdgeInsets.all(1.8)),
                   Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("${(duration.inHours % 24).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}", style: TextStyle(wordSpacing: 5, letterSpacing: 1, color: Theme.of(context).primaryColor), textScaleFactor: 1.5,)
+                        Text("${(duration.inHours % 24).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}", style: TextStyle(fontWeight: FontWeight.w600 ,wordSpacing: 5, letterSpacing: 1, color: Theme.of(context).primaryColor), textScaleFactor: 1.5,)
                       ]),
                 ]),
                 Column(
@@ -90,9 +91,26 @@ class PastWorkoutCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("Dist. $distance km", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
-                  Text("avgSpeed: $avgSpeed kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
-                  Text("maxSpeed: $maxSpeed kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                  Column(
+                    children: <Widget>[
+                          Text("Distance", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[700]),),
+                          Text("${distance.toStringAsFixed(2)} km", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                          Text("Average Speed", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[700]),),
+                          Text("${avgSpeed.toStringAsFixed(2)} kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                          Text("Max Speed", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[700]),),
+                          Text("${maxSpeed.toStringAsFixed(2)} kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                    ],
+                  ),
+                  // Text("avgSpeed: ${avgSpeed.toStringAsFixed(2)} kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                  // Text("maxSpeed: ${maxSpeed.toStringAsFixed(2)} kmh", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
                 ],
               )
             ],

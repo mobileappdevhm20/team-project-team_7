@@ -63,8 +63,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
             );
         }
         if (state is Success) {
-          ExtendedNavigator.of(context)
-              .pushReplacementNamed(Routes.pastWorkoutsScreen);
+          ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.pastWorkoutsScreen, (Route<dynamic> route) => false);
         }
         },
         child:      
@@ -151,8 +150,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                                 ),
                                 FlatButton(
                                   onPressed: () {
-                                    ExtendedNavigator.of(context)
-                                        .pushNamed(Routes.homeScreen);
+                                    ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.homeScreen, (Route<dynamic> route) => false);
                                   },
                                   child: const Text('Yes'),
                                 ),

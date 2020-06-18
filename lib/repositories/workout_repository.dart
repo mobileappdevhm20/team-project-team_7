@@ -18,7 +18,6 @@ class WorkoutRepository {
 
   Future<void> deleteWorkout(String id) {
     return _firebaseAuth.currentUser().then((value) => _firestore.collection("users").document(value.uid).collection("workouts").document(id).delete());
-
   }
 
   Stream<QuerySnapshot> getWorkoutStream(String uid) {

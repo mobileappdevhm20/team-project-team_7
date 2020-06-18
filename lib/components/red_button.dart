@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class RedButton extends StatelessWidget {
@@ -15,13 +17,20 @@ class RedButton extends StatelessWidget {
     return ButtonTheme(
       minWidth: 120,
       height: 40,
+      textTheme: ButtonTextTheme.primary,
       child: RaisedButton(
         color: Theme.of(context).accentColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         onPressed: _onPressed,
-        child: Text(_buttonText),
+        child: Text(_buttonText.toUpperCase(), 
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.2
+          ),),
       ),
     );
   }

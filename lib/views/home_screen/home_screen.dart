@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {ExtendedNavigator.of(context).pushNamed(Routes.trackingScreen);},
+        onPressed: () {ExtendedNavigator.of(context).pushNamed(Routes.pastWorkoutsScreen);},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
