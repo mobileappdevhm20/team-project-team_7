@@ -13,18 +13,28 @@ import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
 import 'package:fitrack/views/settings_screen/settings_screen.dart';
 
+import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
+import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
+import 'package:fitrack/views/past_workouts_screen/past_workouts_screen.dart';
+
 abstract class Routes {
   static const splashScreen = '/';
   static const registerScreen = '/register-screen';
   static const loginScreen = '/login-screen';
   static const homeScreen = '/home-screen';
   static const settingsScreen = '/settings-screen';
+  static const trackingScreen = '/tracking-screen';
+  static const trackingSummaryScreen = '/tracking-summary-screen';
+  static const pastWorkoutsScreen = '/past-workouts-screen';
   static const all = {
     splashScreen,
     registerScreen,
     loginScreen,
     homeScreen,
     settingsScreen,
+    trackingScreen,
+    trackingSummaryScreen,
+    pastWorkoutsScreen,
   };
 }
 
@@ -93,6 +103,40 @@ class Router extends RouterBase {
           builder: (context) => SettingsScreen(key: typedArgs.key),
           settings: settings,
           fullscreenDialog: true,
+
+      case Routes.trackingScreen:
+        if (hasInvalidArgs<TrackingScreenArguments>(args)) {
+          return misTypedArgsRoute<TrackingScreenArguments>(args);
+        }
+        final typedArgs =
+            args as TrackingScreenArguments ?? TrackingScreenArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              TrackingScreen(key: typedArgs.key, title: typedArgs.title),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.trackingSummaryScreen:
+        if (hasInvalidArgs<TrackingSummaryScreenArguments>(args)) {
+          return misTypedArgsRoute<TrackingSummaryScreenArguments>(args);
+        }
+        final typedArgs = args as TrackingSummaryScreenArguments ??
+            TrackingSummaryScreenArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              TrackingSummaryScreen(key: typedArgs.key, title: typedArgs.title),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.pastWorkoutsScreen:
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              PastWorkoutsScreen(),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
         );
       default:
         return unknownRoutePage(settings.name);
@@ -126,4 +170,17 @@ class HomeScreenArguments {
 class SettingsScreenArguments {
   final Key key;
   SettingsScreenArguments({this.key});
+
+//TrackingScreen arguments holder class
+class TrackingScreenArguments {
+  final Key key;
+  final String title;
+  TrackingScreenArguments({this.key, this.title});
+}
+
+//TrackingSummaryScreen arguments holder class
+class TrackingSummaryScreenArguments {
+  final Key key;
+  final String title;
+  TrackingSummaryScreenArguments({this.key, this.title});
 }
