@@ -1,20 +1,18 @@
-  
 import 'package:fitrack/components/custom_scaffold.dart';
 import 'package:fitrack/components/workout_fab.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const FiTrackScaffold(
-      screenTitle: "Home",
+      screenTitle: "Settings",
       body: Center(
-        child: Text('This is the home screen'),
+        child: Text('This is the settings page'),
       ),
-      showBottomNavigationBar: true,
-      fabButton: WorkoutFab(),
+      showBottomNavigationBar: false,
     );
   }
 }

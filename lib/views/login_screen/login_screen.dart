@@ -23,7 +23,13 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text(
+          'Login',
+          style: TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         elevation: 0.0,
       ),
       body: const LoginForm(),
