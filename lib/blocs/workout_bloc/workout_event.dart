@@ -45,3 +45,14 @@ class LocationEvent extends WorkoutEvent {
   @override
   String toString() => 'WorkoutLocationEvent: lat: $latitude, long: $longitude';
 }
+
+class ResetWorkout extends WorkoutEvent {
+
+  const ResetWorkout();
+
+  @override
+  List<Object> get props => [];
+
+  @override
+  String toString() => 'ResetWorkout';
+}

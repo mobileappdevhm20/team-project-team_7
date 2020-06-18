@@ -47,7 +47,7 @@ class Clock extends StatelessWidget {
                 height: 250,
                 child: Center(
                   child: Text(
-                    "${(timerValue.inHours % 24).toString().padLeft(2, '0')}:${(timerValue.inMinutes % 60).toString().padLeft(2, '0')}:${(timerValue.inSeconds % 60).toString().padLeft(2, '0')}",
+                    "${(timerValue.inHours).toString().padLeft(2, '0')}:${(timerValue.inMinutes % 60).toString().padLeft(2, '0')}:${(timerValue.inSeconds % 60).toString().padLeft(2, '0')}",
                     style: TextStyle(
                         color: Theme.of(context).accentColor,
                         fontWeight: FontWeight.bold),

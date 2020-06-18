@@ -2,12 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/save_workout_bloc/workout_db_bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
+import 'package:fitrack/components/custom_scaffold.dart';
 import 'package:fitrack/components/red_button.dart';
 import 'package:fitrack/components/stat_row.dart';
 import 'package:fitrack/models/work_out.dart';
 import 'package:fitrack/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:share/share.dart';
+
+import '../../blocs/workout_bloc/bloc.dart';
 
 class TrackingSummaryScreen extends StatefulWidget {
   const TrackingSummaryScreen({Key key, this.title}) : super(key: key);
@@ -28,10 +32,8 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
   @override
   Widget build(BuildContext context) {
     return  
-    Scaffold (
-      appBar: AppBar(
-        title: const Text("Summary"),
-      ),
+    FiTrackScaffold (
+      screenTitle: "Summary",
       body: BlocListener<WorkoutDBBloc, WorkoutDBState>(
         listener: (context, state) {
           if (state is Error) {
@@ -63,6 +65,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
             );
         }
         if (state is Success) {
+          BlocProvider.of<WorkoutBloc>(context).add(const ResetWorkout());
           ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.pastWorkoutsScreen, (Route<dynamic> route) => false);
         }
         },
@@ -100,7 +103,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                     ),
                     StatRow(
                       leftText: "Distance",
-                      rightText: "${state.distance.toStringAsFixed(2)} km"
+                      rightText: "${(state.distance/1000).toStringAsFixed(2)} km"
                     ),
                     StatRow(
                       leftText: "Avg. Speed",
@@ -133,6 +136,14 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                   },
                 ),
                 RedButton(
+                  buttonText: "Share Workout",
+                  onPressed: () {
+                    final state = BlocProvider.of<WorkoutBloc>(context).state;
+                    final time = state.beginning.difference(state.end).abs();
+                    Share.share("Hi, I just ran ${(state.distance/1000).toStringAsFixed(2)} kilometers in ${(time.inHours).toString().padLeft(2, '0')}:${(time.inMinutes % 60).toString().padLeft(2, '0')}:${(time.inSeconds % 60).toString().padLeft(2, '0')}.That is a speed of ${state.avgSpeed.toStringAsFixed(2)} kmh. Try to beat me at FiTrack!");
+                  },
+                ),
+                RedButton(
                   buttonText: "Continue without saving",
                   onPressed: () {
                     showDialog(
@@ -150,6 +161,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                                 ),
                                 FlatButton(
                                   onPressed: () {
+                                    BlocProvider.of<WorkoutBloc>(context).add(const ResetWorkout());
                                     ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.homeScreen, (Route<dynamic> route) => false);
                                   },
                                   child: const Text('Yes'),

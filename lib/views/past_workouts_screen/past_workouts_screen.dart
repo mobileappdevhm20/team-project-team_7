@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fitrack/components/custom_scaffold.dart';
 import 'package:fitrack/components/past_workout_card.dart';
+import 'package:fitrack/components/workout_fab.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:fitrack/repositories/workout_repository.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PastWorkoutsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
+    return FiTrackScaffold(
+      screenTitle: "Past Workouts",
+      showBottomNavigationBar: true,
+      fabButton: const WorkoutFab(),
       body: FutureBuilder(
         future: RepositoryProvider.of<UserRepository>(context).getCurrentUID(),
         builder: (context, snapshot) {

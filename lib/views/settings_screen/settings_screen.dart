@@ -1,5 +1,4 @@
 import 'package:fitrack/components/custom_scaffold.dart';
-import 'package:fitrack/components/workout_fab.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class SettingsScreen extends StatelessWidget {
       body: Center(
         child: Text('This is the settings page'),
       ),
-      showBottomNavigationBar: false,
     );
   }
 }

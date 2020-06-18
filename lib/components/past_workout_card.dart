@@ -55,7 +55,7 @@ class PastWorkoutCard extends StatelessWidget {
                   Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("${(duration.inHours % 24).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}", style: TextStyle(fontWeight: FontWeight.w600 ,wordSpacing: 5, letterSpacing: 1, color: Theme.of(context).primaryColor), textScaleFactor: 1.5,)
+                        Text("${(duration.inHours).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}", style: TextStyle(fontWeight: FontWeight.w600 ,wordSpacing: 5, letterSpacing: 1, color: Theme.of(context).primaryColor), textScaleFactor: 1.5,)
                       ]),
                 ]),
                 Column(
@@ -94,7 +94,7 @@ class PastWorkoutCard extends StatelessWidget {
                   Column(
                     children: <Widget>[
                           Text("Distance", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[700]),),
-                          Text("${distance.toStringAsFixed(2)} km", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
+                          Text("${(distance/1000).toStringAsFixed(2)} km", style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[700]),),
                     ],
                   ),
                   Column(

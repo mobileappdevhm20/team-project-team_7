@@ -22,7 +22,7 @@ class FiTrackBottomAppBar extends StatelessWidget {
     FiTrackBottomAppBarItem(
         iconData: Icons.home, text: "Home", route: Routes.homeScreen),
     FiTrackBottomAppBarItem(
-        iconData: Icons.history, text: "Log", route: Routes.settingsScreen),
+        iconData: Icons.history, text: "Log", route: Routes.pastWorkoutsScreen),
   ];
 
   void _pressedTabItem(BuildContext context, int index) {
@@ -30,7 +30,7 @@ class FiTrackBottomAppBar extends StatelessWidget {
     final currentRoute = ModalRoute.of(context).settings.name;
     if (clickedRoute != currentRoute) {
       if (clickedRoute != Routes.settingsScreen) {
-        ExtendedNavigator.of(context).pushReplacementNamed(clickedRoute);
+        ExtendedNavigator.of(context).pushNamed(clickedRoute);
       } else {
         ExtendedNavigator.of(context).pushNamed(clickedRoute);
       }

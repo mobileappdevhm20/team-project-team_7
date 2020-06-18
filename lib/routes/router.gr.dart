@@ -12,7 +12,6 @@ import 'package:fitrack/views/register_screen/register_screen.dart';
 import 'package:fitrack/views/login_screen/login_screen.dart';
 import 'package:fitrack/views/home_screen/home_screen.dart';
 import 'package:fitrack/views/settings_screen/settings_screen.dart';
-
 import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
 import 'package:fitrack/views/past_workouts_screen/past_workouts_screen.dart';
@@ -103,7 +102,7 @@ class Router extends RouterBase {
           builder: (context) => SettingsScreen(key: typedArgs.key),
           settings: settings,
           fullscreenDialog: true,
-
+        );
       case Routes.trackingScreen:
         if (hasInvalidArgs<TrackingScreenArguments>(args)) {
           return misTypedArgsRoute<TrackingScreenArguments>(args);
@@ -170,6 +169,7 @@ class HomeScreenArguments {
 class SettingsScreenArguments {
   final Key key;
   SettingsScreenArguments({this.key});
+}
 
 //TrackingScreen arguments holder class
 class TrackingScreenArguments {

@@ -1,10 +1,7 @@
-import 'dart:developer';
-import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_bloc.dart';
-import 'package:fitrack/blocs/workout_bloc/workout_event.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
-import 'package:fitrack/components/red_button.dart';
-import 'package:fitrack/routes/router.gr.dart';
+import 'package:fitrack/components/custom_scaffold.dart';
+import 'package:fitrack/components/tracking_fab.dart';
 import 'package:fitrack/views/tracking_screen/stop_watch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,10 +23,10 @@ class _TrackingScreenState extends State<TrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Tracking", style: TextStyle(color: Colors.white),),
-      ),
+    return FiTrackScaffold(
+      screenTitle: "Workout",
+      floatingLocation: FloatingActionButtonLocation.centerFloat,
+      fabButton: const TrackingFab(),
       body: BlocListener<WorkoutBloc, WorkoutState>(
         listener: (context, state) {
           if (state.error) {
@@ -47,9 +44,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   backgroundColor: Colors.red,
                 ),
               );
-          } else {
-            log(state.toString());
-          }
+          } 
         },
         child: ListView(
           children: <Widget>[
@@ -81,7 +76,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                             Text("Distance", style: TextStyle(fontWeight: FontWeight.normal), textScaleFactor: 1.7,),
-                            Text("${state.distance.toStringAsFixed(2)} km", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
+                            Text("${(state.distance/1000).toStringAsFixed(2)} km", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
                         ],
                       ),
                       Row(
@@ -110,62 +105,6 @@ class _TrackingScreenState extends State<TrackingScreen> {
                 );
               }),
             ),
-            Center(child: BlocBuilder<WorkoutBloc, WorkoutState>(
-                builder: (context, state) {
-              if (state.isTracking) {
-                Scaffold.of(context).hideCurrentSnackBar();
-                return RedButton(
-                  buttonText: "Finish Workout",
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (_) => AlertDialog(
-                              title: const Text("Finish your Workout?"),
-                              actions: <Widget>[
-                                FlatButton(
-                                  onPressed: () {
-                                    ExtendedNavigator.of(context).pop();
-                                  },
-                                  child: const Text('Cancel'),
-                                ),
-                                FlatButton(
-                                  onPressed: () {
-                                    BlocProvider.of<WorkoutBloc>(context)
-                                        .add(const EndWorkout());
-                                    ExtendedNavigator.of(context).pushNamedAndRemoveUntil(Routes.trackingSummaryScreen, (Route<dynamic> route) => false);
-                                  },
-                                  child: const Text('Yes'),
-                                ),
-                              ],
-                            ));
-                  },
-                );
-              } else if (state.isLoading) {
-                return const CircularProgressIndicator();
-              } else {
-                return RedButton(
-                  buttonText: "Start Workout",
-                  onPressed: () {
-                    BlocProvider.of<WorkoutBloc>(context)
-                        .add(const StartWorkout());
-                    Scaffold.of(context)
-                      ..hideCurrentSnackBar()
-                      ..showSnackBar(
-                        SnackBar(
-                          duration: const Duration(seconds: 999999),
-                          content: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text('Starting GPS '),
-                              CircularProgressIndicator()
-                            ],
-                          ),
-                        ),
-                      );
-                  },
-                );
-              }
-            })),
           ],
         ),
       ),

@@ -5,6 +5,8 @@ import 'package:bloc/bloc.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_event.dart';
 import 'package:fitrack/blocs/workout_bloc/workout_state.dart';
 
+import 'bloc.dart';
+
 class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
 
   @override
@@ -18,6 +20,8 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       yield* _mapStartWorkoutToState();
     } else if (event is EndWorkout) {
       yield* _mapEndWorkoutToState();
+    } else if (event is ResetWorkout) {
+      yield* _mapResetWorkoutToState();
     }
   }
 
@@ -74,6 +78,10 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
   Stream<WorkoutState> _mapEndWorkoutToState() async* {
     yield state.update(isTracking: false);
     BackgroundLocation.stopLocationService();
+  }
+
+  Stream<WorkoutState> _mapResetWorkoutToState() async* {
+    yield WorkoutState.empty();
   }
 }
 
