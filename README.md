@@ -10,11 +10,16 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 ---
 
 ## Table of content
-* [Prototype](#prototype)
-* [Features](#features)
-* [Milestones](#milestones)
-* [Authors & Acknowledgement](#authors-&-Acknowledgement)
-    * [Developers](#developers)
+- [Screenshots of the application](#screenshots-of-the-application)
+- [Prototype](#prototype)
+- [Features](#features)
+- [Milestones](#milestones)
+- [Authors & Acknowledgement](#authors-&-Acknowledgement)
+    - [Developers](#developers)
+
+---
+
+## Screenshots of the application
 
 ---
 
@@ -24,15 +29,14 @@ The prototype of the FiTrack application was created in Figma.
 You can find the Figma prototype [here](https://www.figma.com/file/bOH8Rt1yujQjkMxyjsm1hj/FiTrack?node-id=0%3A1)
 <br>
 
-
 ---
 
 ## Features
-- [x] Create or login with an FiTrack Account.
-- [x] Track your stats when running.
-- [x] Store and view your past runs.
-- [x] Social functionality with your friends.
-- [x] Change settings.
+- Create or login with an FiTrack Account.
+- Track your stats when running.
+- Store and view your past runs.
+- Social functionality with your friends.
+- Change settings.
 
 ---
 
@@ -49,6 +53,6 @@ You can find the Figma prototype [here](https://www.figma.com/file/bOH8Rt1yujQjk
 This project was created in Flutter as a part of a University project. In the course, Mobile Application Development (in German 'Mobile Anwendungen') at Munich University of Applied Sciences.
 <br>
 #### Developers:
-* [devtobi](https://github.com/devtobi)
-* [m1n1](https://github.com/m1n1)
-* [C-RJonsson](https://github.com/C-RJonsson)
+- [devtobi](https://github.com/devtobi)
+- [m1n1](https://github.com/m1n1)
+- [C-RJonsson](https://github.com/C-RJonsson)
