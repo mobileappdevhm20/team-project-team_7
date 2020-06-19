@@ -33,6 +33,7 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
               children: <Widget>[
                 Text("WELCOME TO",
                     textAlign: TextAlign.center,
+                    key: const Key("welcomeText"),
                     style: TextStyle(
                         fontSize: 45,
                         fontWeight: FontWeight.w700,
