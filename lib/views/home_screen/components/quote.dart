@@ -15,7 +15,7 @@ Future<Quote> fetchAlbum() async {
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('No Connection to Quotes Service');
   }
 }
 
