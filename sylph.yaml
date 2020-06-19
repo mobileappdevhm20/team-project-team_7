@@ -7,7 +7,7 @@ sylph_timeout: 720 # seconds approx
 concurrent_runs: true
 
 # device farm config
-project_name: FiTrack Driver Tests
+project_name: FiTrack Driver Tests (Group 7)
 default_job_timeout: 10 # minutes, set at project creation
 
 device_pools:
@@ -17,7 +17,7 @@ device_pools:
     devices:
       - name: Google Pixel 2
         model: Google Pixel 2
-        os: 9
+        os: 8.1.0
 
 test_suites:
   - test_suite: driver test
