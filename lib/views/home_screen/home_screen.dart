@@ -1,4 +1,3 @@
-  
 import 'package:fitrack/components/custom_scaffold.dart';
 import 'package:fitrack/components/workout_fab.dart';
 import 'package:fitrack/views/home_screen/components/quote.dart';
