@@ -1,38 +1,33 @@
-import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:quotes/quotes.dart';
 
-Future<Quote> fetchAlbum() async {
-  final response =
-      await http.get('https://quotes.rest/qod?category=sports&language=en');
+// Future<Quote> fetchAlbum() async {
+//   final response =
+//       Quotes.getRandom();
 
-  if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return Quote.fromJson(json.decode(response.body) as Map<String, dynamic>);
-  } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('No Connection to Quotes Service');
-  }
-}
+//   if (response.statusCode == 200) {
+//     // If the server did return a 200 OK response,
+//     // then parse the JSON.
+//     return Quote.fromJson(json.decode(response.body) as Map<String, dynamic>);
+//   } else {
+//     // If the server did not return a 200 OK response,
+//     // then throw an exception.
+//     throw Exception('No Connection to Quotes Service');
+//   }
+// }
 
 class Quote {
   final String quote;
   final String author;
-  final String date;
 
-  Quote({this.quote, this.author, this.date});
+  Quote({this.quote, this.author});
 
   factory Quote.fromJson(Map<String, dynamic> json) {
-    final results = json['contents'];
-    final quote = results['quotes'][0];
+    final quote = json['result'];
     return Quote(
         quote: quote['quote'] as String,
-        author: quote['author'] as String,
-        date: quote['date'] as String);
+        author: quote['author'] as String
+    );
   }
 }
 
@@ -46,12 +41,13 @@ class QuoteWidget extends StatefulWidget {
 }
 
 class _QuoteWidgetState extends State<QuoteWidget> {
-  Future<Quote> futureQuote;
+  Quote futureQuote;
 
   @override
   void initState() {
     super.initState();
-    futureQuote = fetchAlbum();
+    final quote = Quotes.getRandom();
+    futureQuote = Quote(quote: quote.getContent(), author: quote.getAuthor());
   }
 
   @override
@@ -72,29 +68,18 @@ class _QuoteWidgetState extends State<QuoteWidget> {
             color: Theme.of(context).primaryColor,
           ),
           const Padding(padding: EdgeInsets.all(5)),
-          FutureBuilder<Quote>(
-            future: futureQuote,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Column(
-                  children: <Widget>[
-                    Text(
-                      snapshot.data.quote.toString(),
-                      style: TextStyle(
-                          fontSize: 17, fontWeight: FontWeight.normal),
-                    ),
-                    const Padding(padding: EdgeInsets.all(10)),
-                    Text(snapshot.data.author.toString(),
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400)),
-                  ],
-                );
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
+           Column(
+            children: <Widget>[
+              Text(
+                futureQuote.quote.toString(),
+                style: TextStyle(
+                    fontSize: 17, fontWeight: FontWeight.normal),
+              ),
+              const Padding(padding: EdgeInsets.all(10)),
+              Text(futureQuote.author.toString(),
+                  style: TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.w400)),
+            ],
           )
         ],
       ),

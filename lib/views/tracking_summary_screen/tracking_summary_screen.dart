@@ -82,7 +82,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Row(
-                        children: <Widget>[
+                        children: const <Widget>[
                           Text(
                             "Your Summary:",
                             style: TextStyle(fontWeight: FontWeight.bold),
