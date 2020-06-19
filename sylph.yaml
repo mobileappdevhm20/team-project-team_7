@@ -15,9 +15,9 @@ device_pools:
   - pool_name: android pool 1
     pool_type: android
     devices:
-      - name: Google Pixel 2
-        model: Google Pixel 2
-        os: 8.1.0
+      - name: Samsung Galaxy A7
+        model: Samsung Galaxy A7
+        os: 8.0.0
 
 test_suites:
   - test_suite: driver test
