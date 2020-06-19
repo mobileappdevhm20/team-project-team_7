@@ -27,16 +27,27 @@ void main() {
       _user.add(MockFirebaseUser());
       return MockAuthResult();
     });
-    when(_auth.signInWithEmailAndPassword(email: "mail", password: "pass"))
-        .thenThrow(() {
-      return null;
+
+    when(_auth.createUserWithEmailAndPassword(
+            email: "sign@up.com", password: "signup"))
+        .thenAnswer((_) async {
+      return MockAuthResult();
     });
+
     when(_auth.currentUser()).thenAnswer((_) async {
-      return MockFirebaseUser();
+      return _user.value;
     });
 
     test("sign in with email and password", () async {
       await _repo.signInWithCredentials("email", "password");
+      final signedIn = await _repo.isSignedIn();
+      expect(signedIn, true);
+    });
+
+    test("sign up", () async {
+      const email = "sign@up.com";
+      const password = "signup";
+      await _repo.signUp(email: email, password: password);
       final signedIn = await _repo.isSignedIn();
       expect(signedIn, true);
     });

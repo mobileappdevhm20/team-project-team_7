@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-import '../MockClasses/mock_user_repository.dart';
+import '../../MockClasses/mock_user_repository.dart';
 
 void main() {
   // Create a mock instance
