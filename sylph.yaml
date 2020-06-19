@@ -16,7 +16,7 @@ device_pools:
     pool_type: android
     devices:
       - name: Samsung Galaxy A7
-        model: Samsung Galaxy A7
+        model: SM-A700F
         os: 8.0.0
 
 test_suites:
