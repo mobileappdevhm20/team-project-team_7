@@ -44,22 +44,28 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   backgroundColor: Colors.red,
                 ),
               );
-          } 
+          }
         },
         child: ListView(
           children: <Widget>[
             const Padding(padding: EdgeInsets.all(10)),
-            Center(child: 
-            BlocBuilder<WorkoutBloc, WorkoutState>(
-              builder: (context, state) {
-                DateTime startTime;
-                if (state.isTracking) {
-                  startTime = state.beginning;
-                } else {
-                  startTime = DateTime.now();
-                }
-                return Clock(startTime: startTime, extraTime: DateTime.now(), isRunning: state.isTracking,);
-               },),),
+            Center(
+              child: BlocBuilder<WorkoutBloc, WorkoutState>(
+                builder: (context, state) {
+                  DateTime startTime;
+                  if (state.isTracking) {
+                    startTime = state.beginning;
+                  } else {
+                    startTime = DateTime.now();
+                  }
+                  return Clock(
+                    startTime: startTime,
+                    extraTime: DateTime.now(),
+                    isRunning: state.isTracking,
+                  );
+                },
+              ),
+            ),
             Center(
               child: BlocBuilder<WorkoutBloc, WorkoutState>(
                   builder: (context, state) {
@@ -69,35 +75,85 @@ class _TrackingScreenState extends State<TrackingScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Row(
-                        children: <Widget>[Text("Stats:", style: TextStyle(fontWeight: FontWeight.bold), textScaleFactor: 2.5,)],
+                        children: const <Widget>[
+                          Text(
+                            "Stats:",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                            textScaleFactor: 2.5,
+                          )
+                        ],
                       ),
-                      Divider(thickness: 1.0, height: 1.0, color: Theme.of(context).primaryColor,),
+                      Divider(
+                        thickness: 1.0,
+                        height: 1.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                            Text("Distance", style: TextStyle(fontWeight: FontWeight.normal), textScaleFactor: 1.7,),
-                            Text("${(state.distance/1000).toStringAsFixed(2)} km", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
+                          Text(
+                            "Distance",
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                            textScaleFactor: 1.7,
+                          ),
+                          Text(
+                            "${(state.distance / 1000).toStringAsFixed(2)} km",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                            textScaleFactor: 2.5,
+                          ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                            Text("Speed", style: TextStyle(fontWeight: FontWeight.normal), textScaleFactor: 1.7,),
-                            Text("${state.currentSpeed.toStringAsFixed(2)} kmh", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
+                          Text(
+                            "Speed",
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                            textScaleFactor: 1.7,
+                          ),
+                          Text(
+                            "${state.currentSpeed.toStringAsFixed(2)} kmh",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                            textScaleFactor: 2.5,
+                          ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                            Text("Avg. Speed", style: TextStyle(fontWeight: FontWeight.normal), textScaleFactor: 1.7,),
-                            Text("${state.avgSpeed.toStringAsFixed(2)} kmh", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
+                          Text(
+                            "Avg. Speed",
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                            textScaleFactor: 1.7,
+                          ),
+                          Text(
+                            "${state.avgSpeed.toStringAsFixed(2)} kmh",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                            textScaleFactor: 2.5,
+                          ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                            Text("Max. Speed", style: TextStyle(fontWeight: FontWeight.normal), textScaleFactor: 1.7,),
-                            Text("${state.maxSpeed.toStringAsFixed(2)} kmh", style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold), textScaleFactor: 2.5,),                 
+                          Text(
+                            "Max. Speed",
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                            textScaleFactor: 1.7,
+                          ),
+                          Text(
+                            "${state.maxSpeed.toStringAsFixed(2)} kmh",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                            textScaleFactor: 2.5,
+                          ),
                         ],
                       )
                     ],

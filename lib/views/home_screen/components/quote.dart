@@ -25,9 +25,7 @@ class Quote {
   factory Quote.fromJson(Map<String, dynamic> json) {
     final quote = json['result'];
     return Quote(
-        quote: quote['quote'] as String,
-        author: quote['author'] as String
-    );
+        quote: quote['quote'] as String, author: quote['author'] as String);
   }
 }
 
@@ -68,16 +66,15 @@ class _QuoteWidgetState extends State<QuoteWidget> {
             color: Theme.of(context).primaryColor,
           ),
           const Padding(padding: EdgeInsets.all(5)),
-           Column(
+          Column(
             children: <Widget>[
               Text(
                 futureQuote.quote.toString(),
-                style: TextStyle(
-                    fontSize: 17, fontWeight: FontWeight.normal),
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
               ),
               const Padding(padding: EdgeInsets.all(10)),
               Text(futureQuote.author.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 15, fontWeight: FontWeight.w400)),
             ],
           )
