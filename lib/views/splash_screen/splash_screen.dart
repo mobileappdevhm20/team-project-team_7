@@ -30,21 +30,21 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Column(
-              children: <Widget>[
+              children: const <Widget>[
                 Text("WELCOME TO",
                     textAlign: TextAlign.center,
-                    key: const Key("welcomeText"),
+                    key: Key("welcomeText"),
                     style: TextStyle(
                         fontSize: 45,
                         fontWeight: FontWeight.w700,
-                        color: const Color.fromRGBO(255, 255, 255, 1.0))),
+                        color: Color.fromRGBO(255, 255, 255, 1.0))),
                 Text(
                   "FITRACK",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 75,
                       fontWeight: FontWeight.w400,
-                      color: const Color.fromRGBO(220, 50, 0, 1.0)),
+                      color: Color.fromRGBO(220, 50, 0, 1.0)),
                 ),
                 Text(
                   "GET FIT WITH FRIENDS",
@@ -52,7 +52,7 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w600,
-                      color: const Color.fromRGBO(255, 255, 255, 1.0)),
+                      color: Color.fromRGBO(255, 255, 255, 1.0)),
                 ),
               ],
             ),
