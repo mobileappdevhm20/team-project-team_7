@@ -47,7 +47,7 @@ class AuthenticationBloc
   }
 
   Stream<AuthenticationState> _mapLoggedOutToState() async* {
-    _userRepository.signOut();
+    await _userRepository.signOut();
     yield Unauthenticated();
   }
 }
