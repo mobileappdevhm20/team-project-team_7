@@ -17,7 +17,7 @@ class EmailChanged extends RegisterEvent {
   List<Object> get props => [email];
 
   @override
-  String toString() => 'EmailChanged { email :$email }';
+  String toString() => 'EmailChanged { email: $email }';
 }
 
 class PasswordChanged extends RegisterEvent {
@@ -41,7 +41,7 @@ class NameChanged extends RegisterEvent {
   List<Object> get props => [name];
 
   @override
-  String toString() => 'PasswordChanged { password: $name }';
+  String toString() => 'NameChanged { name: $name }';
 }
 
 class Submitted extends RegisterEvent {

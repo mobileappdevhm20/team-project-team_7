@@ -42,11 +42,12 @@ class AuthenticationBloc
   }
 
   Stream<AuthenticationState> _mapLoggedInToState() async* {
-    yield Authenticated(await _userRepository.getUserName());
+    final name = await _userRepository.getUserName();
+    yield Authenticated(name);
   }
 
   Stream<AuthenticationState> _mapLoggedOutToState() async* {
+    await _userRepository.signOut();
     yield Unauthenticated();
-    _userRepository.signOut();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/register_bloc/bloc.dart';
 import 'package:fitrack/components/red_button.dart';
@@ -16,7 +17,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _repeatPasswordController =
       TextEditingController();
-  
+
   RegisterBloc _registerBloc;
 
   bool get isPopulated =>
@@ -63,7 +64,7 @@ class _RegisterFormState extends State<RegisterForm> {
         }
         if (state.isSuccess) {
           BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn());
-          Navigator.of(context).pop();
+          ExtendedNavigator.of(context).pop();
         }
         if (state.isFailure) {
           Scaffold.of(context)
@@ -131,17 +132,19 @@ class _RegisterFormState extends State<RegisterForm> {
                     },
                   ),
                   Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            RedButton(
-                              buttonText: "Register",
-                              onPressed: isRegisterButtonEnabled(state)
-                                  ? _onFormSubmitted
-                                  : null,
-                            ),
-                          ]))
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        RedButton(
+                          buttonText: "Register",
+                          onPressed: isRegisterButtonEnabled(state)
+                              ? _onFormSubmitted
+                              : null,
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

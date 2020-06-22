@@ -6,7 +6,6 @@ class UserRepository {
   UserRepository({FirebaseAuth firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
-
   Future<void> signInWithCredentials(String email, String password) {
     return _firebaseAuth.signInWithEmailAndPassword(
       email: email,
@@ -22,9 +21,7 @@ class UserRepository {
   }
 
   Future<void> signOut() async {
-    return Future.wait([
-      _firebaseAuth.signOut()
-    ]);
+    await _firebaseAuth.signOut();
   }
 
   Future<bool> isSignedIn() async {
@@ -39,6 +36,10 @@ class UserRepository {
   // Future<FirebaseUser> getUser() async {
   //   return _firebaseAuth.currentUser();
   // }
+
+  Future<String> getCurrentUID() async {
+    return (await _firebaseAuth.currentUser()).uid;
+  }
 
   Future<String> getUserEMail() async {
     return (await _firebaseAuth.currentUser()).email;
