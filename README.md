@@ -24,11 +24,11 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 ## Screenshots of the application
 Start  |  Login page | Register page
 :-----:|:-----------:|:-------------:|
-![Start](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/FiTrack-Start.PNG?raw=true)  |  ![Login](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/FiTrack-LogIn-Screen.PNG?raw=true)  |  ![Register](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/FiTrack-Register.PNG?raw=true)
+![Start](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-Start.PNG?raw=true)  |  ![Login](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-LogIn-Screen.PNG?raw=true)  |  ![Register](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-Register.PNG?raw=true)
 
 Homepage | Workout | Workout Summary | Past Workout
 :-------:|:-------:|:---------------:|:-----:|
-![Homepage](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/fitrack_home.PNG?raw=true) | ![Workout](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/fitrack_workout.PNG?raw=true) | ![WorkoutSummary](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/fitrack_summary.PNG?raw=true) | ![PastWorkout](https://github.com/mobileappdevhm20/team-project-team_7/blob/develop/docs/fitrack_pastworkout.PNG?raw=true)
+![Homepage](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_home.PNG?raw=true) | ![Workout](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_workout.PNG?raw=true) | ![WorkoutSummary](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_summary.PNG?raw=true) | ![PastWorkout](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_pastworkout.PNG?raw=true)
 
 ---
 
