@@ -1,2 +1,0 @@
-Hier werden später Komponenten hinterlegt,
-die spezifisch für den HomeScreen sind.

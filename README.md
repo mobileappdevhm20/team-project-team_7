@@ -4,7 +4,7 @@
 
 [![codecov](https://codecov.io/gh/mobileappdevhm20/team-project-team_7/branch/master/graph/badge.svg)](https://codecov.io/gh/mobileappdevhm20/team-project-team_7)
 
-# FiTrack - Get Fit With Friends
+# FiTrack - Get Fit With Friends - Documentation
 FiTrack is a fitness tracking application with competitive features. Improve and get a better overview of your training with the FiTrack application.
 <br>FiTrack helps you track and store the progress of your run. See the progress you are making with the activity history.
 <br>With the help of GPS tracking the FiTrack can track the routes, distance and speed of your run.
@@ -12,56 +12,33 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 ---
 
 ## Table of content
-- [Screenshots of the application](#screenshots-of-the-application)
-- [Prototype](#prototype)
-- [Features](#features)
-- [Milestones](#milestones)
-- [Authors & Acknowledgement](#authors-&-Acknowledgement)
-    - [Developers](#developers)
+- [Pre-requisites](#pre-requisites)
+- [Installation guide](#installation-guide)
+- [Used dependencies / dev-dependencies](#dependencies)
+- [Project structure](#project-structure)
+- [Widget explanations](#widgets)
 
 ---
 
-## Screenshots of the application
-Start  |  Login page | Register page
-:-----:|:-----------:|:-------------:|
-![Start](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-Start.PNG?raw=true)  |  ![Login](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-LogIn-Screen.PNG?raw=true)  |  ![Register](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/FiTrack-Register.PNG?raw=true)
-
-Homepage | Workout | Workout Summary | Past Workout
-:-------:|:-------:|:---------------:|:-----:|
-![Homepage](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_home.PNG?raw=true) | ![Workout](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_workout.PNG?raw=true) | ![WorkoutSummary](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_summary.PNG?raw=true) | ![PastWorkout](https://github.com/mobileappdevhm20/team-project-team_7/blob/master/docs/fitrack_pastworkout.PNG?raw=true)
+## Pre-requisites
+TODO
 
 ---
 
-## Prototype
-The prototype of the FiTrack application was created in Figma.
-<br>
-You can find the Figma prototype [here](https://www.figma.com/file/bOH8Rt1yujQjkMxyjsm1hj/FiTrack?node-id=0%3A1)
-<br>
+## Installation Guide
+TODO
 
 ---
 
-## Features
-- Create or login with an FiTrack Account.
-- Track your stats when running.
-- Store and view your past runs.
-- Social functionality with your friends.
-- Change settings.
+## Dependencies
+TODO
 
 ---
 
-## Milestones
-| Sprints | Tasks |
-| ------ | ------------- |
-| Sprint 1 | Implement Login, Sign up UI and user database. Setup repository, starter code and Codemagic. |
-| Sprint 2 | Implement navigation, start tracking function, GPS tracking, workout progress and history with database. Update README.md and add Codecov integration.|
-| Sprint 3 | ... |
+## Project structure
+TODO
 
 ---
 
-## Authors & Acknowledgement
-This project was created in Flutter as a part of a University project. In the course, Mobile Application Development (in German 'Mobile Anwendungen') at Munich University of Applied Sciences.
-<br>
-#### Developers:
-- [devtobi](https://github.com/devtobi)
-- [m1n1](https://github.com/m1n1)
-- [C-RJonsson](https://github.com/C-RJonsson)
+## Widgets
+TODO

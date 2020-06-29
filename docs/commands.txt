@@ -1,5 +1,0 @@
-Generating Code Coverage locally
-flutter test --coverage
-
-Uploading to Codecov
-bash <(curl -s https://codecov.io/bash) -t 0363754c-be0b-4be9-901e-ac6d96c858f7

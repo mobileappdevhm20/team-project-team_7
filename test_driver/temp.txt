@@ -1,2 +1,0 @@
-Driver tests (integration tests will be placed here)
-See (https://flutter.dev/docs/cookbook/testing/integration/introduction)

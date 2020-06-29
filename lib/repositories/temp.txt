@@ -1,2 +1,0 @@
-Repositories nutzen eine oder mehrere Services um Zugriff auf Daten zu erlauben
-Dabei können auch Daten verschiedener Quellen korreliert werden.
