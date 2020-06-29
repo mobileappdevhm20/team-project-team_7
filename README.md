@@ -44,7 +44,30 @@ Best practices like **seperation of concerns**, splitting the application into *
 ---
 
 ## Dependencies
-TODO
+### Dependencies (compilation dependencies)
+These dependencies are required for application to compile. They are part of the created .apk/.ipa file.
+
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc) - Used for implementing the BLoC pattern in Flutter environments
+- [equatable](https://pub.dev/packages/equatable) - Enables value equality instead of standard pointer equality in dart
+- [firebase_core](https://pub.dev/packages/firebase_core) - Enables the connection of multiple Firebase apps
+- [firebase_auth](https://pub.dev/packages/firebase_auth) - Enables Firebase authentication in Flutter apps
+- [rx_dart](https://pub.dev/packages/rxdart) - Adds additional capabilities to Dart Streams and StreamControllers
+- [background_location](https://pub.dev/packages/background_location) - Gives access to GPS sensor while the app running is in the background
+- [auto_route](https://pub.dev/packages/auto_route) - Route Generation library
+- [cloud_firestore](https://pub.dev/packages/cloud_firestore) - Enables the access of Cloud Firestore, a Service to store data in a noSQL database
+- [share](https://pub.dev/packages/share) - Enables sharing content via the platform share UI
+- [quotes](https://pub.dev/packages/quotes) - Utility that contains more than 500 famous quotes.
+
+### Dev-Dependencies (only needed while developing)
+These dependencies will not be included in the final product and just help the developers to develop faster and better.
+
+- [mockito](https://pub.dev/packages/mockito) - Mock library for testing purposes
+- [bloc_test](https://pub.dev/packages/bloc_test) - Testing library that makes it easy to test BLoCs, events and states.
+- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) - Simplifies the task of updating the apps launcher icon
+- [flutter_launcher_name](https://pub.dev/packages/flutter_launcher_name) - Simplifies the task of updating the apps launcher name
+- [lint](https://pub.dev/packages/lint) - Advanced dart linter for better code style
+- [auto_route_generator](https://pub.dev/packages/auto_route_generator) - Generator for the auto_route dependency
+- [build_runner](https://pub.dev/packages/build_runner) - Build system for Dart code generation and modular compilation
 
 ---
 
