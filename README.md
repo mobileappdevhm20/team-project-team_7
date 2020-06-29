@@ -72,7 +72,25 @@ These dependencies will not be included in the final product and just help the d
 ---
 
 ## Project structure
-TODO
+
+![The used architecure inside FiTrack](https://miro.medium.com/max/1400/1*MqYPYKdNBiID0mZ-zyE-mA.png)
+
+
+- *pubspec.yaml* - File that stores the meta-data for the project and I used for managing dependencies
+- *android/* and *ios/* - **Don't touch** these folders unless you know what you're doing
+- *assets/* - Contains images, fonts and more
+- *test/* - Contains unit tests for widgets and other objects
+- *test_driver/* - Contains driver tests (integration tests)
+- *lib/* - Contains the actual source code
+  - *main.dart* - Entry file to the application that setups global blocs, repository and the root widget of the app
+  - *theme.dart* - Defines the ThemeData of the application
+  - *blocs/* - Contains BLoCs and their respective event and state files. (3 files in total for each BLoC) (more on the BLoC pattern [here](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1))
+  - *components/* - Contains reusable components that are used in multiple parts of the application
+  - *models/* - Contains data models
+  - *repositories/* - Contains repositories that are used to access data providers and combine them
+  - *routes/* - Contains the routing setup for the application
+  - *services/* - Contains custom implementations for special services
+  - *views/* - Split into folders. Each folder contains a view. If special components are used specifically in that view, they are stored in */components* subfolder
 
 ---
 
