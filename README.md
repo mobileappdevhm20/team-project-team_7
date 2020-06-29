@@ -9,6 +9,9 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 <br>FiTrack helps you track and store the progress of your run. See the progress you are making with the activity history.
 <br>With the help of GPS tracking the FiTrack can track the routes, distance and speed of your run.
 
+If you need more technical information or would like to contribute to the project please read the documentation:<br>
+[FiTrack documentation](https://mobileappdevhm20.github.io/team-project-team_7/)
+
 ---
 
 ## Table of content
