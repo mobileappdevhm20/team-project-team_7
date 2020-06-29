@@ -5,9 +5,9 @@
 [![codecov](https://codecov.io/gh/mobileappdevhm20/team-project-team_7/branch/master/graph/badge.svg)](https://codecov.io/gh/mobileappdevhm20/team-project-team_7)
 
 # FiTrack - Get Fit With Friends - Documentation
-FiTrack is a fitness tracking application with competitive features. Improve and get a better overview of your training with the FiTrack application.
-<br>FiTrack helps you track and store the progress of your run. See the progress you are making with the activity history.
-<br>With the help of GPS tracking the FiTrack can track the routes, distance and speed of your run.
+This page explains technical background of the app and can be used by other developers for contributing to the project.
+The project uses the programming language **Dart** and uses the **Flutter** cross-platform framework by Google.
+Best practices like **seperation of concerns**, splitting the application into **multiple layers** and using advanced state management with the **BLoC** pattern are used.
 
 ---
 
@@ -21,12 +21,25 @@ FiTrack is a fitness tracking application with competitive features. Improve and
 ---
 
 ## Pre-requisites
-TODO
+- working **dart** installation on your machine (check out the [official dart installation guide](https://dart.dev/get-dart))
+- working **flutter** installation on your machine (check out the [official flutter installation guide](https://flutter.dev/docs/get-started/install)
+- working **git** installation on your machine (check out the [official git installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+- working **android sdk / Android Studio** installation on your machine if you want to target Android (check out the [official android studio installation guide](https://developer.android.com/studio/install))
+- working **xcode** installation if you want to target iOS (check out [this guide](https://medium.com/@LondonAppBrewery/how-to-download-and-setup-xcode-10-for-ios-development-b63bed1865c))
 
 ---
 
 ## Installation Guide
-TODO
+0. Make sure you got a functional flutter installation by running <br>
+  `flutter doctor`
+1. Clone the master (or any other) branch by running <br>
+  `git clone https://github.com/mobileappdevhm20/team-project-team_7.git`
+2. Install the project dependencies by running <br>
+  `flutter pub get`
+3. 1. Debug on your own device or a running simulator by running <br>
+  `flutter run` or
+   2. Build a release by running either <br>
+  `flutter build apk` or `flutter build ios`
 
 ---
 
