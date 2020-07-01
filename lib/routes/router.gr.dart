@@ -15,6 +15,7 @@ import 'package:fitrack/views/settings_screen/settings_screen.dart';
 import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
 import 'package:fitrack/views/past_workouts_screen/past_workouts_screen.dart';
+import 'package:fitrack/views/privacy_policy_screen/privacy_policy_screen.dart';
 
 abstract class Routes {
   static const splashScreen = '/';
@@ -25,6 +26,7 @@ abstract class Routes {
   static const trackingScreen = '/tracking-screen';
   static const trackingSummaryScreen = '/tracking-summary-screen';
   static const pastWorkoutsScreen = '/past-workouts-screen';
+  static const privacyPolicy = '/privacy-policy';
   static const all = {
     splashScreen,
     registerScreen,
@@ -34,6 +36,7 @@ abstract class Routes {
     trackingScreen,
     trackingSummaryScreen,
     pastWorkoutsScreen,
+    privacyPolicy,
   };
 }
 
@@ -137,6 +140,19 @@ class Router extends RouterBase {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 200),
         );
+      case Routes.privacyPolicy:
+        if (hasInvalidArgs<PrivacyPolicyScreenArguments>(args)) {
+          return misTypedArgsRoute<PrivacyPolicyScreenArguments>(args);
+        }
+        final typedArgs = args as PrivacyPolicyScreenArguments ??
+            PrivacyPolicyScreenArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              PrivacyPolicyScreen(key: typedArgs.key),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -183,4 +199,10 @@ class TrackingSummaryScreenArguments {
   final Key key;
   final String title;
   TrackingSummaryScreenArguments({this.key, this.title});
+}
+
+//PrivacyPolicyScreen arguments holder class
+class PrivacyPolicyScreenArguments {
+  final Key key;
+  PrivacyPolicyScreenArguments({this.key});
 }
