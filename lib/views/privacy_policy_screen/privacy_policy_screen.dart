@@ -17,7 +17,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 future: rootBundle.loadString('assets/privacypolicy.txt'),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
-                    return const Text("An error occured");
+                    return const Text("An Error occured");
                   }
                   if (snapshot.hasData) {
                     return Text(snapshot.data);
