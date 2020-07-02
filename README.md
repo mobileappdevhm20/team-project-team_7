@@ -144,7 +144,7 @@ For now this screen only displays a random quote from [quotes](https://pub.dev/p
 The tracking is done with [background_location](https://pub.dev/packages/background_location) package. The first time the app is used the user is asked for gps-permission. The ui communicates with the location-service via the workout_bloc.dart. 
 
 ### Tracking Summary
-When the user is finished with tracking he is redirected to a tracking summary screen. Here he has the option to save his workout. To do this the UI communicates with the save_workout_bloc.dart. The BLOC then communicates with the workout_repository.dart which uses firebases Cloud-Firestore to save the Workout online and per user.
+When the user is finished with tracking he is redirected to a tracking summary screen. Here he has the option to save his workout. To do this the UI communicates with the workout_db_bloc.dart. The BLOC then communicates with the workout_repository.dart which uses firebases Cloud-Firestore to save the Workout online and per user.
 
 There is also a [share](https://pub.dev/packages/share) feature and the option to not save.
 
