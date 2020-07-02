@@ -93,6 +93,60 @@ These dependencies will not be included in the final product and just help the d
   - *views/* - Split into folders. Each folder contains a view. If special components are used specifically in that view, they are stored in */components* subfolder
 
 ---
+### Repository and Blocs
+The app makes heavy use of Repositories and BLOCs. To access those there is a MultiRepositoryProvider and MultiBlocProvider in the main.dart. These Repositories and BLOCs can then be accessed in the whole widget tree.
+```Dart
+    MultiRepositoryProvider(
+        providers: [
+          //global repositories
+          RepositoryProvider(create: (context) => UserRepository()),
+          RepositoryProvider(
+            create: (context) => WorkoutRepository(),
+          ),
+        ],
+        child: MultiBlocProvider(
+          providers: [
+            //global blocs
+            BlocProvider<AuthenticationBloc>(create: (context) {
+              return AuthenticationBloc(
+                userRepository: RepositoryProvider.of<UserRepository>(context),
+              )..add(AppStarted());
+            }),
+            BlocProvider<WorkoutBloc>(
+              create: (context) => WorkoutBloc(),
+            ),
+            BlocProvider<WorkoutDBBloc>(
+                create: (context) => WorkoutDBBloc(
+                    workoutRepository:
+                        RepositoryProvider.of<WorkoutRepository>(context))),
+          ],
+          child: const FiTrackApp(),
+        ),
+```
+---
+### Login and Signup
+For User Authentication Firebase with the [firebase_auth](https://pub.dev/packages/firebase_auth) plugin is used. The communication to firebase is done with the repository lib/repositories/user_repository.dart.
 
-## Widgets
-TODO
+The app uses BLOCs to communicate with the repository. There is a:
+- authentication_bloc: Looks what the authentication state of the user is, in other words if the user is logged in or not. The app should then route to the appropiate views.
+- register_bloc: Communicates directly to the user_repository to register the user. Also validates email and password during typing.
+- login_bloc: Communicates directly to the user_repository to login the user. Also validates email and password during typing.
+
+There is a seperate screen each for login and signup which communicate with the appropiate BLOCs.
+
+### Fitrack Scaffold
+Most pages are created with this Scaffold (lib/components/custom_scaffold.dart). It customises the look of the appbar and includes a buttom navigation bar with a floating action button. What parts are shown can be controlled with booleans. 
+
+### Homescreen
+For now this screen only displays a random quote from [quotes](https://pub.dev/packages/quotes) package. The idea was to show the recent events, news and milestones of you and your friends here.
+
+### Tracking
+The tracking is done with [background_location](https://pub.dev/packages/background_location) package. The first time the app is used the user is asked for gps-permission. The ui communicates with the location-service via the workout_bloc.dart. 
+
+### Tracking Summary
+When the user is finished with tracking he is redirected to a tracking summary screen. Here he has the option to save his workout. To do this the UI communicates with the save_workout_bloc.dart. The BLOC then communicates with the workout_repository.dart which uses firebases Cloud-Firestore to save the Workout online and per user.
+
+There is also a [share](https://pub.dev/packages/share) feature and the option to not save.
+
+### Past Workouts
+This view uses a [StreamBuilder](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to create a listview with all workouts for the current user. For simplicity the view uses the workout_repository.dart directly and not with a bloc.
