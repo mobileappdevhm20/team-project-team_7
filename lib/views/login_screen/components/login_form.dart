@@ -82,6 +82,7 @@ class _LoginFormState extends State<LoginForm> {
                     icon: Icons.mail,
                     hintText: "Email",
                     controller: _emailController,
+                    trimWhitespace: true,
                     validator: (_) {
                       return !state.isEmailValid ? 'Invalid Email' : null;
                     },
@@ -92,6 +93,7 @@ class _LoginFormState extends State<LoginForm> {
                     hintText: "Password",
                     obscureText: true,
                     controller: _passwordController,
+                    trimWhitespace: false,
                     validator: (_) {
                       return !state.isPasswordValid ? 'Invalid Password' : null;
                     },

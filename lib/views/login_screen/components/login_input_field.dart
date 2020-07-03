@@ -1,5 +1,6 @@
 import 'package:fitrack/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginField extends StatelessWidget {
   final TextEditingController _controller;
@@ -7,16 +8,18 @@ class LoginField extends StatelessWidget {
   final String _hintText;
   final bool _obscureText;
   final IconData _icon;
+  final bool _trimWhitespace;
 
   const LoginField(
       {Key key,
       @required TextEditingController controller,
-      String Function(String) validator, @required String hintText, bool obscureText, IconData icon})
+      String Function(String) validator, @required String hintText, bool obscureText, IconData icon, @required bool trimWhitespace})
       : _controller = controller,
         _validator = validator,
         _hintText = hintText,
         _obscureText = obscureText,
         _icon = icon,
+        _trimWhitespace = trimWhitespace,
         super(key: key);
 
   @override
@@ -34,6 +37,9 @@ class LoginField extends StatelessWidget {
       autovalidate: true,
       autocorrect: false,
       validator: _validator,
+      inputFormatters: _trimWhitespace? [
+          BlacklistingTextInputFormatter(RegExp("[ ]"))
+        ] : null
     );
   }
 }
