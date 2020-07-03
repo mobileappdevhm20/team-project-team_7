@@ -44,7 +44,7 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
                   style: TextStyle(
                       fontSize: 75,
                       fontWeight: FontWeight.w400,
-                      color: Color.fromRGBO(220, 50, 0, 1.0)),
+                      color: Color.fromRGBO(0, 0, 0, 1.0)),
                 ),
                 Text(
                   "GET FIT WITH FRIENDS",

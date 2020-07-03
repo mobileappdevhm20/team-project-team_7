@@ -131,6 +131,11 @@ class _RegisterFormState extends State<RegisterForm> {
                           : null;
                     },
                   ),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
+                  Icon(Icons.info),
+                  const Padding(padding: EdgeInsets.all(5)),
+                  const Flexible(child:  Text("Password needs to be 8 characters long and include letters and numbers"),),
+                  ],),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Column(
