@@ -16,7 +16,7 @@ Best practices like **seperation of concerns**, splitting the application into *
 - [Installation guide](#installation-guide)
 - [Used dependencies / dev-dependencies](#dependencies)
 - [Project structure](#project-structure)
-- [Widget explanations](#widgets)
+- [Architecture explanation](#architecture)
 
 ---
 
@@ -93,6 +93,7 @@ These dependencies will not be included in the final product and just help the d
   - *views/* - Split into folders. Each folder contains a view. If special components are used specifically in that view, they are stored in */components* subfolder
 
 ---
+## Architecture
 ### Repository and Blocs
 The app makes heavy use of Repositories and BLOCs. To access those there is a MultiRepositoryProvider and MultiBlocProvider in the main.dart. These Repositories and BLOCs can then be accessed in the whole widget tree.
 ```Dart
@@ -150,3 +151,11 @@ There is also a [share](https://pub.dev/packages/share) feature and the option t
 
 ### Past Workouts
 This view uses a [StreamBuilder](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to create a listview with all workouts for the current user. For simplicity the view uses the workout_repository.dart directly and not with a bloc.
+
+## Authors & Acknowledgement
+This project was created in Flutter as a part of a University project. In the course, Mobile Application Development (in German 'Mobile Anwendungen') at Munich University of Applied Sciences.
+<br>
+#### Developers:
+- [devtobi](https://github.com/devtobi)
+- [m1n1](https://github.com/m1n1)
+- [C-RJonsson](https://github.com/C-RJonsson)
