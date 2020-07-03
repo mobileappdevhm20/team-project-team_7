@@ -5,34 +5,14 @@ import 'package:fitrack/blocs/login_bloc/validators.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:meta/meta.dart';
 
-
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final UserRepository _userRepository;
 
   LoginBloc({
     @required UserRepository userRepository,
   })  : assert(userRepository != null),
-        _userRepository = userRepository;
-
-  @override
-  LoginState get initialState => LoginState.empty();
-
-  // @override
-  // Stream<Transition<LoginEvent, LoginState>> transformEvents(
-  //   Stream<LoginEvent> events,
-  //   TransitionFunction<LoginEvent, LoginState> transitionFn,
-  // ) {
-  //   final nonDebounceStream = events.where((event) {
-  //     return event is! EmailChanged && event is! PasswordChanged;
-  //   });
-  //   final debounceStream = events.where((event) {
-  //     return event is EmailChanged || event is PasswordChanged;
-  //   }).debounceTime(const Duration(milliseconds: 300));
-  //   return super.transformEvents(
-  //     nonDebounceStream.mergeWith([debounceStream]),
-  //     transitionFn,
-  //   );
-  // }
+        _userRepository = userRepository,
+        super(LoginState.empty());
 
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {

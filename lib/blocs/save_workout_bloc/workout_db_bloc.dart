@@ -8,16 +8,13 @@ import 'package:meta/meta.dart';
 part 'workout_db_event.dart';
 part 'workout_db_state.dart';
 
-class WorkoutDBBloc
-    extends Bloc<WorkoutDBEvent, WorkoutDBState> {
+class WorkoutDBBloc extends Bloc<WorkoutDBEvent, WorkoutDBState> {
   final WorkoutRepository _workoutRepository;
 
   WorkoutDBBloc({@required WorkoutRepository workoutRepository})
       : assert(workoutRepository != null),
-        _workoutRepository = workoutRepository;
-
-  @override
-  WorkoutDBState get initialState => Uninitialized();
+        _workoutRepository = workoutRepository,
+        super(Uninitialized());
 
   @override
   Stream<WorkoutDBState> mapEventToState(
@@ -27,7 +24,7 @@ class WorkoutDBBloc
       yield* _mapSaveWorkoutToState(event);
     } else if (event is DeleteWorkout) {
       yield* _mapDeleteWorkoutToState();
-    } 
+    }
   }
 
   Stream<WorkoutDBState> _mapSaveWorkoutToState(SaveWorkout event) async* {
@@ -44,6 +41,4 @@ class WorkoutDBBloc
     //final uid = await _userRepository.getCurrentUID();
     yield Success();
   }
-
-  
 }
