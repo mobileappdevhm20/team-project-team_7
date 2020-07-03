@@ -57,7 +57,7 @@ You can find the Figma prototype [here](https://www.figma.com/file/bOH8Rt1yujQjk
 | ------ | ------------- |
 | Sprint 1 | Implement Login, Sign up UI and user database. Setup repository, starter code and Codemagic. |
 | Sprint 2 | Implement navigation, start tracking function, GPS tracking, workout progress and history with database. Update README.md and add Codecov integration.|
-| Sprint 3 | ... |
+| Sprint 3 | Decrease App size, Implement improvements and features from beta testing |
 
 ---
 
