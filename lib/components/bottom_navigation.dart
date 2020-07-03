@@ -74,7 +74,7 @@ class FiTrackBottomAppBar extends StatelessWidget {
     BuildContext context,
   }) {
     final Color color = _isCurrentRoute(context, index)
-        ? Theme.of(context).accentColor
+        ? Colors.black
         : Colors.white;
 
     return Expanded(
