@@ -18,44 +18,63 @@ class SettingsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: BlocListener<AuthenticationBloc, AuthenticationState>(
-            listener: (context, state) {
-              if (state is Authenticated) {
-                ExtendedNavigator.of(context)
-                    .pushReplacementNamed(Routes.homeScreen);
-              } else {
-                ExtendedNavigator.of(context)
-                    .pushReplacementNamed(Routes.splashScreen);
-              }
-            },
-            child: RedButton(
-              buttonText: "Logout",
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                    title: const Text("Logout"),
-                    content: const Text("Are you sure you want to log out?"),
-                    actions: <Widget>[
-                      FlatButton(
-                        onPressed: () {
-                          ExtendedNavigator.of(context).pop();
-                        },
-                        child: const Text('Cancel'),
+              listener: (context, state) {
+                if (state is Authenticated) {
+                  ExtendedNavigator.of(context)
+                      .pushReplacementNamed(Routes.homeScreen);
+                } else {
+                  ExtendedNavigator.of(context)
+                      .pushReplacementNamed(Routes.splashScreen);
+                }
+              },
+              child: Column(children: <Widget>[
+                RedButton(
+                  buttonText: "Privacy Policy",
+                  onPressed: () {
+                    ExtendedNavigator.of(context)
+                        .pushNamed(Routes.privacyPolicy);
+                  },
+                ),
+                RedButton(
+                  buttonText: "Logout",
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                        title: const Text("Logout"),
+                        content:
+                            const Text("Are you sure you want to log out?"),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              ExtendedNavigator.of(context).pop();
+                            },
+                            child: const Text('Cancel'),
+                          ),
+                          FlatButton(
+                            onPressed: () {
+                              final auth =
+                                  BlocProvider.of<AuthenticationBloc>(context);
+                              auth.add(LoggedOut());
+                            },
+                            child: const Text('Log out'),
+                          ),
+                        ],
                       ),
                       FlatButton(
                         onPressed: () {
                           final auth =
-                              BlocProvider.of<AuthenticationBloc>(context);
+                    );
                           auth.add(LoggedOut());
-                        },
-                        child: const Text('Log out'),
+                  },
+                ),
                       ),
                     ],
                   ),
                 );
               },
             ),
-          ),
+              ])),
         ),
       ),
     );

@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643090921580:android:80b031d5ab9311e6514049",
+        "android_client_info": {
+          "package_name": "com.hm.fitrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643090921580-eu2tjands0hfdt6dqcirc3laehaehr1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUoZgFbFeyO94Mt-XMVy_bqWAhGSwR9Ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643090921580-eu2tjands0hfdt6dqcirc3laehaehr1t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

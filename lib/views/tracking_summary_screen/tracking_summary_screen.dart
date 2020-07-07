@@ -142,7 +142,7 @@ class _TrackingSummaryScreenState extends State<TrackingSummaryScreen> {
                       final state = BlocProvider.of<WorkoutBloc>(context).state;
                       final time = state.beginning.difference(state.end).abs();
                       Share.share(
-                          "Hi, I just ran ${(state.distance / 1000).toStringAsFixed(2)} kilometers in ${(time.inHours).toString().padLeft(2, '0')}:${(time.inMinutes % 60).toString().padLeft(2, '0')}:${(time.inSeconds % 60).toString().padLeft(2, '0')}.That is a speed of ${state.avgSpeed.toStringAsFixed(2)} kmh. Try to beat me at FiTrack!");
+                          "Hi, I just ran ${(state.distance / 1000).toStringAsFixed(2)} kilometers in ${(time.inHours).toString().padLeft(2, '0')}:${(time.inMinutes % 60).toString().padLeft(2, '0')}:${(time.inSeconds % 60).toString().padLeft(2, '0')}.That is a speed of ${state.avgSpeed.toStringAsFixed(2)} kmh. Try to beat me at FiTrack! https://play.google.com/store/apps/details?id=com.hm.fitrack");
                     },
                   ),
                   RedButton(

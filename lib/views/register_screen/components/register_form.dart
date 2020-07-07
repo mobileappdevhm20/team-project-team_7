@@ -95,6 +95,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     hintText: "Name",
                     obscureText: false,
                     controller: _nameController,
+                    trimWhitespace: true,
                     validator: (_) {
                       return !state.isNameValid
                           ? 'Name must be at least 3 Characters long'
@@ -106,6 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     hintText: "Email",
                     obscureText: false,
                     controller: _emailController,
+                    trimWhitespace: true,
                     validator: (_) {
                       return !state.isEmailValid ? 'Invalid Email' : null;
                     },
@@ -115,6 +117,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     hintText: "Password",
                     obscureText: true,
                     controller: _passwordController,
+                    trimWhitespace: false,
                     validator: (_) {
                       return !state.isPasswordValid ? 'Invalid Password' : null;
                     },
@@ -124,6 +127,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     hintText: "Repeat Password",
                     obscureText: true,
                     controller: _repeatPasswordController,
+                    trimWhitespace: false,
                     validator: (_) {
                       return !(_passwordController.text ==
                               _repeatPasswordController.text)
@@ -131,6 +135,11 @@ class _RegisterFormState extends State<RegisterForm> {
                           : null;
                     },
                   ),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
+                  Icon(Icons.info),
+                  const Padding(padding: EdgeInsets.all(5)),
+                  const Flexible(child:  Text("Password needs to be 8 characters long and include letters and numbers. No whitespace allowed."),),
+                  ],),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Column(

@@ -57,7 +57,7 @@ class _QuoteWidgetState extends State<QuoteWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
-            "Quote of the Day",
+            "Get Motivated",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           Divider(

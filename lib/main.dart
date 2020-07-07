@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fitrack/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:fitrack/blocs/save_workout_bloc/workout_db_bloc.dart';
-import 'package:fitrack/blocs/simple_bloc_delegate.dart';
+import 'package:fitrack/blocs/simple_bloc_observer.dart';
 import 'package:fitrack/blocs/workout_bloc/bloc.dart';
 import 'package:fitrack/repositories/user_repository.dart';
 import 'package:fitrack/repositories/workout_repository.dart';
@@ -12,8 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  // final UserRepository userRepository = UserRepository();
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocObserver();
   runApp(
     MultiRepositoryProvider(
       providers: [

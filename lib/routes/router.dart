@@ -8,6 +8,7 @@ import 'package:fitrack/views/home_screen/home_screen.dart';
 import 'package:fitrack/views/settings_screen/settings_screen.dart';
 import 'package:fitrack/views/tracking_screen/tracking_screen.dart';
 import 'package:fitrack/views/tracking_summary_screen/tracking_summary_screen.dart';
+import 'package:fitrack/views/privacy_policy_screen/privacy_policy_screen.dart';
 
 @MaterialAutoRouter()
 class $Router {
@@ -48,4 +49,9 @@ class $Router {
       transitionsBuilder: TransitionsBuilders.fadeIn,
       durationInMilliseconds: 200)
   PastWorkoutsScreen pastWorkoutsScreen;
+
+  @CustomRoute(
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+      durationInMilliseconds: 200)
+  PrivacyPolicyScreen privacyPolicy;
 }

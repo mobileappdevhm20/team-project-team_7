@@ -10,27 +10,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   RegisterBloc({@required UserRepository userRepository})
       : assert(userRepository != null),
-        _userRepository = userRepository;
-
-  @override
-  RegisterState get initialState => RegisterState.empty();
-
-  // @override
-  // Stream<Transition<RegisterEvent, RegisterState>> transformEvents(
-  //   Stream<RegisterEvent> events,
-  //   TransitionFunction<RegisterEvent, RegisterState> transitionFn,
-  // ) {
-  //   final nonDebounceStream = events.where((event) {
-  //     return event is! EmailChanged && event is! PasswordChanged;
-  //   });
-  //   final debounceStream = events.where((event) {
-  //     return event is EmailChanged || event is PasswordChanged;
-  //   }).debounceTime(const Duration(milliseconds: 300));
-  //   return super.transformEvents(
-  //     nonDebounceStream.mergeWith([debounceStream]),
-  //     transitionFn,
-  //   );
-  // }
+        _userRepository = userRepository,
+        super(RegisterState.empty());
 
   @override
   Stream<RegisterState> mapEventToState(
@@ -66,10 +47,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   Stream<RegisterState> _mapFormSubmittedToState(
-    String email,
-    String password,
-    String name
-  ) async* {
+      String email, String password, String name) async* {
     yield RegisterState.loading();
     try {
       await _userRepository.signUp(
