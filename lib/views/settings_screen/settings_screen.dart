@@ -18,16 +18,17 @@ class SettingsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: BlocListener<AuthenticationBloc, AuthenticationState>(
-              listener: (context, state) {
-                if (state is Authenticated) {
-                  ExtendedNavigator.of(context)
-                      .pushReplacementNamed(Routes.homeScreen);
-                } else {
-                  ExtendedNavigator.of(context)
-                      .pushReplacementNamed(Routes.splashScreen);
-                }
-              },
-              child: Column(children: <Widget>[
+            listener: (context, state) {
+              if (state is Authenticated) {
+                ExtendedNavigator.of(context)
+                    .pushReplacementNamed(Routes.homeScreen);
+              } else {
+                ExtendedNavigator.of(context)
+                    .pushReplacementNamed(Routes.splashScreen);
+              }
+            },
+            child: Column(
+              children: <Widget>[
                 RedButton(
                   buttonText: "Privacy Policy",
                   onPressed: () {
@@ -61,20 +62,12 @@ class SettingsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      FlatButton(
-                        onPressed: () {
-                          final auth =
                     );
-                          auth.add(LoggedOut());
                   },
                 ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+              ],
             ),
-              ])),
+          ),
         ),
       ),
     );
